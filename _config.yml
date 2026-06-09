@@ -2,25 +2,25 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Kinga Tshering
-first_name: Kinga
-middle_name:
-last_name: Tshering
+title: blank # the website title (if blank, full name will be used instead)
+first_name: You
+middle_name: R.
+last_name: Name
 contact_note: >
-  The best way to reach me is by email and Whatsapp.
-description: >
-  Personal academic homepage of Kinga Tshering, a Computer Science and Engineering student
-  at North South University, Dhaka, Bangladesh.
+  You can even add a little note about which of these is the best way to reach you.
+description: > # the ">" symbol means to ignore newlines until "footer_text:"
+  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: Machine Learning, Computer Vision, Natural Language Processing, explainable AI, VLMs, academic website
-lang: en
-icon: 🎓
+  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
+icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://kingatshering10.github.io
 baseurl: ""
-last_updated: true # set to true if you want to display last updated in the footer
+last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
@@ -122,8 +122,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Kinga Tshering
-blog_description: Research notes, academic updates, and project posts
+blog_name: al-folio # blog_name will be displayed in your blog page
+blog_description: a simple whitespace theme for academics
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -341,8 +341,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Tshering]
-  first_name: [Kinga]
+  last_name: [Einstein]
+  first_name: [Albert, A.]
 
   style: apa
   locale: en
@@ -700,57 +700,3 @@ jsonresume:
   - languages
   - interests
   - references
-
-
-_biblography 
-@inproceedings{tshering2026timespot,
-abbr={ICML},
-title={TimeSpot: Benchmarking Geo-Temporal Understanding in Vision--Language Models in Real-World Settings},
-author={Wasi, Azmine Toushik and Ridoy, Shahriyar Zaman and Tonmoy, Koushik Ahamed and Tshering, Kinga and Hasan, S. M. Muhtasimul and Faisal, Wahid and Mohiuddin, Tasnim and Parvez, Md Rizwan},
-booktitle={Proceedings of the International Conference on Machine Learning},
-year={2026},
-additional_info={<span style="background:#16a34a;color:white;padding:3px 8px;border-radius:999px;font-size:0.75rem;font-weight:600;">Accepted</span>},
-selected={true}
-}
-
-@article{tshering2026hsi,
-abbr={TMLR},
-title={Black Box to Survivor Bands: Decoding Sparse Subnetworks in Hyperspectral Image Classification},
-author={Tshering, Kinga and Sadat, Omar and Kamal, Shahriar and Sarkar, Plabon},
-journal={Transactions on Machine Learning Research},
-year={2026},
-additional_info={<span style="background:#f59e0b;color:white;padding:3px 8px;border-radius:999px;font-size:0.75rem;font-weight:600;">Under Review</span>},
-selected={true}
-}
-
-@article{tshering2026hdafon,
-abbr={Neurocomputing},
-title={H-DAFON: Hierarchical Dynamic Attribute-Guided Network for Few-Shot Open-Set Skin Lesion Recognition},
-author={Tshering, Kinga and Nadeem, Osama and Islam, S. M. Samiul and Elahi, Taufiq and Khan, Riasat},
-journal={Neurocomputing},
-year={2026},
-additional_info={<span style="background:#f59e0b;color:white;padding:3px 8px;border-radius:999px;font-size:0.75rem;font-weight:600;">Under Review</span>},
-selected={true}
-}
-
-@misc{tshering2026tmeval,
-abbr={EMNLP},
-title={From Language Specifications to Executable Turing Machines: Evaluating LLMs as Computational Machine Designers},
-author={Ridoy, Shahriyar Zaman and Hasan, S. M. Muhtasimul and Wasi, Azmine Toushik and Tshering, Kinga and Tonmoy, Koushik Ahamed and Khan, Md Mosaddek},
-year={2026},
-additional_info={<span style="background:#f59e0b;color:white;padding:3px 8px;border-radius:999px;font-size:0.75rem;font-weight:600;">Under Review at EMNLP</span>},
-selected={true}
-}
-
-@article{tshering2026screentime,
-abbr={Zorig Melong},
-title={The Screen-Time Trap: An Explainable Machine Learning Framework for Pediatric Screen-Time Overuse Prediction},
-author={Tshering, Kinga and Hossain Piya, Mushfika and Sharif, Ashraf and Islam, Marzan},
-journal={Zorig Melong Journal},
-volume={9},
-number={2},
-year={2026},
-additional_info={<span style="background:#2563eb;color:white;padding:3px 8px;border-radius:999px;font-size:0.75rem;font-weight:600;">Published</span>},
-selected={true}
-}
-
