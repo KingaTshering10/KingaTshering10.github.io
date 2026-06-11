@@ -1,5 +1,4 @@
 ---
-
 layout: page
 title: CV
 permalink: /cv/
@@ -13,92 +12,94 @@ You can download my full CV here:
 
 ---
 
-## Education
+## 🎓 Education
 
 **B.Sc. in Computer Science and Engineering**
-**North South University**, Dhaka, Bangladesh
-*Class of 2026*
+<br>**North South University**, Dhaka, Bangladesh
+<br>_Class of 2026_
 
-* CGPA: **3.90 / 4.00**
-* Academic standing: **Summa Cum Laude**
-* Scholarship: **His Majesty’s Scholarship**
-
----
-
-## Research Interests
-
-My research interests include **machine learning**, **deep learning**,
-**computer vision**, **vision-language models**, **natural language processing**,
-**medical imaging**, **hyperspectral image classification**, **explainable AI**,
-and **trustworthy applied artificial intelligence**.
+- **CGPA:** 3.90 / 4.00
+- **Academic Standing:** Summa Cum Laude
+- **Scholarship:** His Majesty's Scholarship
 
 ---
 
-## Publications and Research
+## 🔬 Research Interests
 
-I have contributed to accepted, published, and under-review research associated
-with venues and journals such as **ICML 2026**, **TMLR**, **Neurocomputing**,
-**EMNLP**, and **Zorig Melong Journal**.
+I am passionate about the intersection of machine learning and real-world applications. My research interests encompass:
 
-My research work focuses on:
-
-* Vision-language model evaluation
-* Sparse subnetworks for hyperspectral image classification
-* Few-shot open-set skin lesion recognition
-* LLM-based computational reasoning
-* Explainable machine learning for pediatric screen-time overuse prediction
+- **Machine Learning & Deep Learning** – Core methodologies for intelligent systems
+- **Computer Vision & Vision-Language Models** – Understanding visual and multimodal data
+- **Natural Language Processing** – Language understanding and generation
+- **Medical Imaging & Hyperspectral Analysis** – Domain-specific applications
+- **Explainable AI & Trustworthiness** – Transparent and interpretable AI systems
 
 ---
 
-## Teaching Experience
+## 📚 Publications and Research
+
+I have contributed to accepted, published, and under-review research at prestigious venues:
+
+**Featured Venues & Journals:** ICML 2026 • TMLR • Neurocomputing • EMNLP • Zorig Melong Journal
+
+**Research Focus Areas:**
+
+- Vision-language model evaluation and benchmarking
+- Sparse subnetworks for hyperspectral image classification
+- Few-shot open-set skin lesion recognition
+- LLM-based computational reasoning
+- Explainable machine learning for pediatric screen-time overuse prediction
+
+---
+
+## 👨‍🏫 Teaching Experience
 
 **Teaching Assistant**
-**North South University**, Dhaka, Bangladesh
-*2024–2025*
+<br>**North South University**, Dhaka, Bangladesh
+<br>_2024–2025_
 
-Courses supported:
+**Courses Supported:**
 
-* **CSE215: Programming Language II (Java)**
-* **CSE332: Computer Architecture and Organization**
+- **CSE215:** Programming Language II (Java)
+- **CSE332:** Computer Architecture and Organization
 
-Responsibilities included facilitating TA hours, supporting students with course
-concepts, assisting with grading, and helping students strengthen their
-programming and problem-solving skills.
+**Responsibilities:** Facilitated TA office hours, supported students with course concepts, assisted with grading, and strengthened students' programming and problem-solving skills.
 
 ---
 
-## Leadership and Service
+## 🤝 Leadership and Service
 
 **Bhutanese Student Coordinator**
-**North South University**, Dhaka, Bangladesh
-*2022–Present*
+<br>**North South University**, Dhaka, Bangladesh
+<br>_2022–Present_
 
 **Volunteer President**
-**CSO Nazhoen Lamtoen**, Bhutan
-*2020–2021*
+<br>**CSO Nazhoen Lamtoen**, Bhutan
+<br>_2020–2021_
 
-Selected service activities include organizing a community cleaning campaign in
-Phuentsholing on World Mental Health Day, advocating for the HeForShe campaign
-in educational institutions in Bhutan, and supporting children in conflict with
-the law alongside the Regional Case Management Officer of Nazhoen Lamtoen.
+**Selected Initiatives:**
+- Organized community cleaning campaign during World Mental Health Day (Phuentsholing)
+- Advocated for the HeForShe campaign in educational institutions across Bhutan
+- Supported children in conflict with the law alongside the Regional Case Management Officer
 
 ---
 
-## Selected Projects
+## 💼 Selected Projects
 
 **IntelliExpense**
-An ML-based financial budgeting web application designed to support smarter
-personal finance and expense management.
+<br>An ML-powered financial budgeting web application designed to enable smarter personal finance management and intelligent expense tracking.
 
 **FindMySpot**
-A parking reservation system designed to help users find and reserve parking
-spaces more efficiently.
+<br>A smart parking reservation system that helps users discover and reserve parking spaces efficiently, reducing search time and parking frustration.
 
 ---
 
-## Technical Skills
+## 🛠️ Technical Skills
 
-**Programming:** Python, Java, C, C++, SQL
-**Machine Learning:** Deep learning, computer vision, NLP, explainable AI
-**Research Tools:** LaTeX, Overleaf, Git, GitHub
-**Web and Software:** HTML, CSS, JavaScript, database systems
+**Programming Languages:** Python • Java • C • C++ • SQL
+
+**Machine Learning & AI:** Deep Learning • Computer Vision • NLP • Explainable AI
+
+**Research & Development Tools:** LaTeX • Overleaf • Git • GitHub
+
+**Web & Software Development:** HTML • CSS • JavaScript • Database Systems
