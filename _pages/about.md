@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-nav: true
+nav: false
 nav_order: 1
 subtitle: BSc in Computer Science and Engineering Graduate · Machine Learning & Applied AI Researcher
 
