@@ -14,18 +14,18 @@ leadership, and applied artificial intelligence.
 ## North South University
 
 **B.Sc. in Computer Science and Engineering**
-*Dhaka, Bangladesh · Class of 2026*
+_Dhaka, Bangladesh · Class of 2026_
 
 **Academic standing:** Summa Cum Laude
 **CGPA:** 3.90 / 4.00
-**Scholarship:** His Majesty’s Scholarship
+**Scholarship:** His Majesty's Scholarship
 
 I completed my undergraduate degree in **Computer Science and Engineering** at
 **North South University**, Dhaka, Bangladesh. My undergraduate training focused
 on computer science, machine learning, software systems, database systems, and
 research-oriented artificial intelligence.
 
-I was a recipient of **His Majesty’s Scholarship**, awarded to top Bhutanese
+I was a recipient of **His Majesty's Scholarship**, awarded to top Bhutanese
 students nationally. During my undergraduate studies, I developed strong
 academic and research interests in **machine learning**, **deep learning**,
 **computer vision**, **natural language processing**, **medical imaging**,
@@ -42,7 +42,7 @@ machine learning.
 ## Pakshikha Central School
 
 **Higher Secondary Education Certificate — Science Stream**
-*Chhukha, Bhutan · 2020–2021*
+_Chhukha, Bhutan · 2020–2021_
 
 **Class 12 Percentage:** 79.5%
 
@@ -55,7 +55,7 @@ problem-solving.
 ## Dechentsemo Central School
 
 **Secondary Education**
-*Punakha, Bhutan · 2013–2016*
+_Punakha, Bhutan · 2013–2016_
 
 **Class 10 Percentage:** 84.2%
 
