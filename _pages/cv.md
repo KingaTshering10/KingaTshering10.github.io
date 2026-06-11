@@ -26,7 +26,8 @@ You can download my full CV here:
 
 ## 🔬 Research Interests
 
-I am passionate about the intersection of machine learning and real-world applications. My research interests encompass:
+I am passionate about the intersection of machine learning and real-world applications. My
+research interests encompass:
 
 - **Machine Learning & Deep Learning** – Core methodologies for intelligent systems
 - **Computer Vision & Vision-Language Models** – Understanding visual and multimodal data
@@ -40,7 +41,8 @@ I am passionate about the intersection of machine learning and real-world applic
 
 I have contributed to accepted, published, and under-review research at prestigious venues:
 
-**Featured Venues & Journals:** ICML 2026 • TMLR • Neurocomputing • EMNLP • Zorig Melong Journal
+**Featured Venues & Journals:** ICML 2026 • TMLR • Neurocomputing • EMNLP • Zorig Melong
+Journal
 
 **Research Focus Areas:**
 
@@ -63,7 +65,8 @@ I have contributed to accepted, published, and under-review research at prestigi
 - **CSE215:** Programming Language II (Java)
 - **CSE332:** Computer Architecture and Organization
 
-**Responsibilities:** Facilitated TA office hours, supported students with course concepts, assisted with grading, and strengthened students' programming and problem-solving skills.
+**Responsibilities:** Facilitated TA office hours, supported students with course concepts,
+assisted with grading, and strengthened students' programming and problem-solving skills.
 
 ---
 
@@ -78,6 +81,7 @@ I have contributed to accepted, published, and under-review research at prestigi
 <br>_2020–2021_
 
 **Selected Initiatives:**
+
 - Organized community cleaning campaign during World Mental Health Day (Phuentsholing)
 - Advocated for the HeForShe campaign in educational institutions across Bhutan
 - Supported children in conflict with the law alongside the Regional Case Management Officer
@@ -87,10 +91,12 @@ I have contributed to accepted, published, and under-review research at prestigi
 ## 💼 Selected Projects
 
 **IntelliExpense**
-<br>An ML-powered financial budgeting web application designed to enable smarter personal finance management and intelligent expense tracking.
+<br>An ML-powered financial budgeting web application designed to enable smarter personal
+finance management and intelligent expense tracking.
 
 **FindMySpot**
-<br>A smart parking reservation system that helps users discover and reserve parking spaces efficiently, reducing search time and parking frustration.
+<br>A smart parking reservation system that helps users discover and reserve parking spaces
+efficiently, reducing search time and parking frustration.
 
 ---
 
