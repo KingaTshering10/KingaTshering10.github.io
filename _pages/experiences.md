@@ -1,5 +1,4 @@
 ---
-
 layout: page
 title: experience
 permalink: /experience/
@@ -17,7 +16,7 @@ research development.
 ## Teaching Assistant
 
 **North South University**
-*Dhaka, Bangladesh · 2024–2025*
+_Dhaka, Bangladesh · 2024–2025_
 
 I served as a **Teaching Assistant** for undergraduate Computer Science and
 Engineering courses at North South University, supporting students in
@@ -34,15 +33,15 @@ Worked under **Assistant Professor Dr. Nabil Bin Hannan**.
 
 ### Responsibilities
 
-* Facilitated TA hours to help students understand course concepts,
+- Facilitated TA hours to help students understand course concepts,
   programming problems, and assignment requirements.
-* Assisted students with Java programming, object-oriented programming,
+- Assisted students with Java programming, object-oriented programming,
   computer architecture, and fundamental CSE topics.
-* Supported assignment grading, lab-related activities, and examination
+- Supported assignment grading, lab-related activities, and examination
   preparation.
-* Helped students strengthen their problem-solving skills through academic
+- Helped students strengthen their problem-solving skills through academic
   guidance and conceptual clarification.
-* Coordinated with course instructors to support smooth course delivery and
+- Coordinated with course instructors to support smooth course delivery and
   student learning.
 
 ---
@@ -52,7 +51,7 @@ Worked under **Assistant Professor Dr. Nabil Bin Hannan**.
 ### Bhutanese Student Coordinator
 
 **North South University**
-*Dhaka, Bangladesh · 2022–Present*
+_Dhaka, Bangladesh · 2022–Present_
 
 I have served as a **Bhutanese Student Coordinator** at North South University,
 supporting Bhutanese students through academic, administrative, and community
@@ -65,7 +64,7 @@ contributed to building a stronger student community within NSU.
 ### Volunteer President
 
 **CSO Nazhoen Lamtoen, Bhutan**
-*Bhutan · 2020–2021*
+_Bhutan · 2020–2021_
 
 I served as **Volunteer President** at **CSO Nazhoen Lamtoen**, a Bhutanese
 civil society organization working with youth and children in vulnerable
@@ -73,11 +72,11 @@ situations.
 
 ### Key Contributions
 
-* Organized a community cleaning campaign in Phuentsholing on **World Mental
+- Organized a community cleaning campaign in Phuentsholing on **World Mental
   Health Day**.
-* Advocated for the **HeForShe** campaign in educational institutions in
+- Advocated for the **HeForShe** campaign in educational institutions in
   Bhutan.
-* Supported children in conflict with the law in collaboration with the
+- Supported children in conflict with the law in collaboration with the
   Regional Case Management Officer of Nazhoen Lamtoen.
-* Contributed to youth-focused service activities aimed at awareness,
+- Contributed to youth-focused service activities aimed at awareness,
   responsibility, and community engagement.
