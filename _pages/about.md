@@ -169,7 +169,7 @@ latest_posts:
 
 Hi! I am **Kinga Tshering**, a **BSc Computer Science and Engineering
 graduate** of **North South University**, Dhaka, Bangladesh. I graduated with a
-**CGPA of 3.90/4.00** and was a recipient of **His Majesty's Scholarship**.
+**CGPA of 3.91/4.00** and was a recipient of **His Majesty's Scholarship**.
 
 I build and evaluate machine learning systems for **vision**, **language**,
 **medical imaging**, and **trustworthy applied artificial intelligence**.
