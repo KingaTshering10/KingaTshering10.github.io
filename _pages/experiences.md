@@ -1,5 +1,4 @@
 ---
-
 layout: page
 title: experience
 permalink: /experience/
@@ -109,9 +108,9 @@ nav_order: 5
 
 <div class="exp-intro" markdown="1">
 
-My experiences span **teaching**, **student coordination**, **community
-service**, and **youth-led social initiatives**. These roles have strengthened
-my communication, mentoring, leadership, and organizational skills alongside my
+My experiences span **teaching**, **student coordination**, **community service**,
+and **youth-led social initiatives**. These roles have strengthened my
+communication, mentoring, leadership, and organizational skills alongside my
 academic and research development.
 
 </div>
@@ -141,27 +140,26 @@ programming, computer architecture, and core CSE concepts.
 
 <div class="course-box" markdown="1">
 
-**CSE215: Programming Language II (Java)**
-Worked under **Prof. Dr. Rajesh Palit**, **Dr. Shafin Rahman**, and
-**Lecturer Md. Ishan Arefin Hossain**.
+**CSE215: Programming Language II (Java)** Worked under **Prof. Dr. Rajesh
+Palit**, **Dr. Shafin Rahman**, and **Lecturer Md. Ishan Arefin Hossain**.
 
-**CSE332: Computer Architecture and Organization**
-Worked under **Assistant Professor Dr. Nabil Bin Hannan**.
+**CSE332: Computer Architecture and Organization** Worked under **Assistant
+Professor Dr. Nabil Bin Hannan**.
 
 </div>
 
 <details class="exp-details" open>
 <summary>Responsibilities and contributions</summary>
 
-* Facilitated TA hours to help students understand course concepts,
-  programming problems, and assignment requirements.
-* Assisted students with Java programming, object-oriented programming,
+- Facilitated TA hours to help students understand course concepts, programming
+  problems, and assignment requirements.
+- Assisted students with Java programming, object-oriented programming,
   computer architecture, and fundamental CSE topics.
-* Supported assignment grading, lab-related activities, and examination
+- Supported assignment grading, lab-related activities, and examination
   preparation.
-* Helped students strengthen their problem-solving skills through academic
+- Helped students strengthen their problem-solving skills through academic
   guidance and conceptual clarification.
-* Coordinated with course instructors to support smooth course delivery and
+- Coordinated with course instructors to support smooth course delivery and
   student learning.
 
 </details>
@@ -222,13 +220,13 @@ situations.
 <details class="exp-details" open>
 <summary>Key contributions</summary>
 
-* Organized a community cleaning campaign in Phuentsholing on **World Mental
+- Organized a community cleaning campaign in Phuentsholing on **World Mental
   Health Day**.
-* Advocated for the **HeForShe** campaign in educational institutions in
+- Advocated for the **HeForShe** campaign in educational institutions in
   Bhutan.
-* Supported children in conflict with the law in collaboration with the
+- Supported children in conflict with the law in collaboration with the
   Regional Case Management Officer of Nazhoen Lamtoen.
-* Contributed to youth-focused service activities aimed at awareness,
+- Contributed to youth-focused service activities aimed at awareness,
   responsibility, and community engagement.
 
 </details>

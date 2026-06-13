@@ -1,5 +1,4 @@
 ---
-
 layout: page
 title: CV
 permalink: /cv/
@@ -31,10 +30,7 @@ nav_order: 6
     text-decoration: none;
     border: 1px solid var(--global-theme-color);
     color: var(--global-theme-color);
-    transition:
-      transform 0.2s ease,
-      background 0.2s ease,
-      color 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
   }
 
   .cv-button:hover {
@@ -56,9 +52,7 @@ nav_order: 6
     border-radius: 1rem;
     background: var(--global-bg-color);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .cv-card:hover {
@@ -157,7 +151,7 @@ I am **Kinga Tshering**, a Computer Science and Engineering graduate from
 **North South University**, Dhaka, Bangladesh. My academic and research work
 focuses on machine learning, computer vision, natural language processing,
 medical imaging, hyperspectral image classification, explainable AI, and
-trustworthy applied artificial intelligence.
+trusworthy applied artificial intelligence.
 
 <div class="cv-actions">
   <a class="cv-button" href="/assets/pdf/Kinga_Tshering_CV.pdf">Download Full CV</a>
@@ -192,9 +186,8 @@ trustworthy applied artificial intelligence.
 
 <div class="cv-card-title">Education</div>
 
-**B.Sc. in Computer Science and Engineering**
-**North South University**, Dhaka, Bangladesh
-*Class of 2026*
+**B.Sc. in Computer Science and Engineering** **North South University**,
+Dhaka, Bangladesh *Class of 2026*
 
 <div class="cv-badges">
   <span class="cv-badge">CGPA: 3.90 / 4.00</span>
@@ -257,11 +250,11 @@ with venues and journals such as **ICML 2026**, **TMLR**, **Neurocomputing**,
 <details class="cv-details" open>
 <summary>Research focus areas</summary>
 
-* Vision-language model evaluation and benchmarking.
-* Sparse subnetworks for hyperspectral image classification.
-* Few-shot open-set skin lesion recognition.
-* LLM-based computational reasoning.
-* Explainable machine learning for pediatric screen-time overuse prediction.
+- Vision-language model evaluation and benchmarking.
+- Sparse subnetworks for hyperspectral image classification.
+- Few-shot open-set skin lesion recognition.
+- LLM-based computational reasoning.
+- Explainable machine learning for pediatric screen-time overuse prediction.
 
 </details>
 
@@ -271,9 +264,7 @@ with venues and journals such as **ICML 2026**, **TMLR**, **Neurocomputing**,
 
 <div class="cv-card-title">Teaching Experience</div>
 
-**Teaching Assistant**
-**North South University**, Dhaka, Bangladesh
-*2024–2025*
+**Teaching Assistant** **North South University**, Dhaka, Bangladesh *2024–2025*
 
 <div class="cv-badges">
   <span class="cv-badge">CSE215: Java</span>
@@ -289,11 +280,11 @@ exam preparation.
 <details class="cv-details">
 <summary>Responsibilities</summary>
 
-* Facilitated TA hours and academic support sessions.
-* Assisted students with Java programming and object-oriented programming.
-* Supported computer architecture and core CSE concept clarification.
-* Helped with assignment grading and examination-related activities.
-* Coordinated with course instructors to support student learning.
+- Facilitated TA hours and academic support sessions.
+- Assisted students with Java programming and object-oriented programming.
+- Supported computer architecture and core CSE concept clarification.
+- Helped with assignment grading and examination-related activities.
+- Coordinated with course instructors to support student learning.
 
 </details>
 
@@ -303,23 +294,20 @@ exam preparation.
 
 <div class="cv-card-title">Leadership and Service</div>
 
-**Bhutanese Student Coordinator**
-**North South University**, Dhaka, Bangladesh
+**Bhutanese Student Coordinator** **North South University**, Dhaka, Bangladesh
 *2022–Present*
 
-**Volunteer President**
-**CSO Nazhoen Lamtoen**, Bhutan
-*2020–2021*
+**Volunteer President** **CSO Nazhoen Lamtoen**, Bhutan *2020–2021*
 
 <details class="cv-details" open>
 <summary>Selected initiatives</summary>
 
-* Supported Bhutanese students through academic, administrative, and community
+- Supported Bhutanese students through academic, administrative, and community
   coordination.
-* Organized a community cleaning campaign in Phuentsholing on World Mental
+- Organized a community cleaning campaign in Phuentsholing on World Mental
   Health Day.
-* Advocated for the HeForShe campaign in educational institutions in Bhutan.
-* Supported children in conflict with the law alongside the Regional Case
+- Advocated for the HeForShe campaign in educational institutions in Bhutan.
+- Supported children in conflict with the law alongside the Regional Case
   Management Officer of Nazhoen Lamtoen.
 
 </details>
@@ -332,17 +320,15 @@ exam preparation.
 
 <div class="cv-project" markdown="1">
 
-**IntelliExpense**
-An ML-powered financial budgeting web application designed to support smarter
-personal finance management and intelligent expense tracking.
+**IntelliExpense** An ML-powered financial budgeting web application designed to
+support smarter personal finance management and intelligent expense tracking.
 
 </div>
 
 <div class="cv-project" markdown="1">
 
-**FindMySpot**
-A smart parking reservation system that helps users discover and reserve
-parking spaces efficiently, reducing search time and parking frustration.
+**FindMySpot** A smart parking reservation system that helps users discover and
+reserve parking spaces efficiently, reducing search time and parking frustration.
 
 </div>
 

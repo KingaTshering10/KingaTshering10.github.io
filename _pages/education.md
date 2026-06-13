@@ -1,5 +1,4 @@
 ---
-
 layout: page
 title: education
 permalink: /education/
@@ -28,9 +27,7 @@ nav_order: 4
     border-radius: 1rem;
     background: var(--global-bg-color);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .edu-card:hover {
@@ -125,7 +122,7 @@ the foundations that shaped my research interests.
 <div class="edu-badges">
   <span class="edu-badge">CGPA: 3.90 / 4.00</span>
   <span class="edu-badge">Summa Cum Laude</span>
-  <span class="edu-badge">His Majesty’s Scholarship</span>
+  <span class="edu-badge">His Majesty's Scholarship</span>
 </div>
 
 I completed my undergraduate degree in **Computer Science and Engineering** at
@@ -157,9 +154,7 @@ machine learning.
   <div class="edu-date">2020–2021</div>
 </div>
 
-<div class="edu-degree">
-Higher Secondary Education Certificate — Science Stream
-</div>
+<div class="edu-degree">Higher Secondary Education Certificate — Science Stream</div>
 <div class="edu-location">Chhukha, Bhutan</div>
 
 <div class="edu-badges">
