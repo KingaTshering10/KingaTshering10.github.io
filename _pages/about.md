@@ -185,7 +185,7 @@ I build and evaluate machine learning systems for **vision**, **language**,
 
 <div class="about-stats">
   <div class="about-stat">
-    <span class="about-stat-value">3.90 / 4.00</span>
+    <span class="about-stat-value">3.91 / 4.00</span>
     <span class="about-stat-label">Undergraduate CGPA</span>
   </div>
   <div class="about-stat">
