@@ -151,7 +151,7 @@ I am **Kinga Tshering**, a Computer Science and Engineering graduate from
 **North South University**, Dhaka, Bangladesh. My academic and research work
 focuses on machine learning, computer vision, natural language processing,
 medical imaging, hyperspectral image classification, explainable AI, and
-trusworthy applied artificial intelligence.
+trustworthy applied artificial intelligence.
 
 <div class="cv-actions">
   <a class="cv-button" href="/assets/pdf/Kinga_Tshering_CV.pdf">Download Full CV</a>
@@ -187,7 +187,7 @@ trusworthy applied artificial intelligence.
 <div class="cv-card-title">Education</div>
 
 **B.Sc. in Computer Science and Engineering** **North South University**,
-Dhaka, Bangladesh *Class of 2026*
+Dhaka, Bangladesh _Class of 2026_
 
 <div class="cv-badges">
   <span class="cv-badge">CGPA: 3.90 / 4.00</span>
@@ -264,7 +264,7 @@ with venues and journals such as **ICML 2026**, **TMLR**, **Neurocomputing**,
 
 <div class="cv-card-title">Teaching Experience</div>
 
-**Teaching Assistant** **North South University**, Dhaka, Bangladesh *2024–2025*
+**Teaching Assistant** **North South University**, Dhaka, Bangladesh _2024–2025_
 
 <div class="cv-badges">
   <span class="cv-badge">CSE215: Java</span>
@@ -295,9 +295,9 @@ exam preparation.
 <div class="cv-card-title">Leadership and Service</div>
 
 **Bhutanese Student Coordinator** **North South University**, Dhaka, Bangladesh
-*2022–Present*
+_2022–Present_
 
-**Volunteer President** **CSO Nazhoen Lamtoen**, Bhutan *2020–2021*
+**Volunteer President** **CSO Nazhoen Lamtoen**, Bhutan _2020–2021_
 
 <details class="cv-details" open>
 <summary>Selected initiatives</summary>
