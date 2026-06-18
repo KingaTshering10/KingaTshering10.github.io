@@ -249,13 +249,13 @@ that connects rigorous experimentation with practical impact.
 <div class="about-card-title">Publications and Research Activity</div>
 
 I have contributed to accepted, published, and under-review research associated
-with venues and journals such as **ICML 2026**, **TMLR**, **Neurocomputing**,
+with venues and journals such as **ICML 2026**, **TMLR**, **System and Soft Computing**,
 **EMNLP**, and **Zorig Melong Journal**.
 
 <div class="about-badges">
   <span class="about-badge">ICML 2026</span>
   <span class="about-badge">TMLR</span>
-  <span class="about-badge">Neurocomputing</span>
+  <span class="about-badge">System and Soft Computing</span>
   <span class="about-badge">EMNLP</span>
   <span class="about-badge">Zorig Melong Journal</span>
 </div>
