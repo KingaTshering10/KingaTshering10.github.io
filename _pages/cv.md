@@ -236,13 +236,13 @@ remote sensing, reasoning, and multimodal understanding.
 <div class="cv-card-title">Publications and Research</div>
 
 I have contributed to accepted, published, and under-review research associated
-with venues and journals such as **ICML 2026**, **TMLR**, **Neurocomputing**,
+with venues and journals such as **ICML 2026**, **TMLR**, **System and Soft Computing**,
 **EMNLP**, and **Zorig Melong Journal**.
 
 <div class="cv-badges">
   <span class="cv-badge">ICML 2026</span>
   <span class="cv-badge">TMLR</span>
-  <span class="cv-badge">Neurocomputing</span>
+  <span class="cv-badge">System and Soft Computing</span>
   <span class="cv-badge">EMNLP</span>
   <span class="cv-badge">Zorig Melong Journal</span>
 </div>
