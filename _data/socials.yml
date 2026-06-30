@@ -6,7 +6,7 @@ email: kinga.tshering@northsouth.edu # your email address
 github_username: KingaTshering10 # your GitHub username
 linkedin_username: kinga-tshering-036a99138 # your LinkedIn vanity name (the part after /in/)
 # inspirehep_id: 1010907 # Inspire HEP author ID (uncomment only if you have an InspireHEP profile)
-rss_icon: true # comment this line to hide the RSS icon
+rss_icon: false # comment this line to hide the RSS icon
 scholar_userid: b6lJ-mQAAAAJ # your Google Scholar ID (the user= value from your Scholar profile URL)
 # wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
 whatsapp_number: +8801408496248 # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
