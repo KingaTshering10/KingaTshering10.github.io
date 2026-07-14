@@ -312,7 +312,12 @@ def plan_shipment(
         if farm is not None and farm.latitude is not None and farm.longitude is not None
     ]
     order_indices = list(range(len(pickups)))
-    if routable and delivery_loc is not None and delivery_loc.latitude is not None:
+    if (
+        routable
+        and delivery_loc is not None
+        and delivery_loc.latitude is not None
+        and delivery_loc.longitude is not None
+    ):
         origin = RoutePoint(delivery_loc.latitude, delivery_loc.longitude, delivery_loc.name)
         seq = sequence_stops_nearest_neighbour(origin, [pt for _, pt in routable])
         sequenced = [routable[j][0] for j in seq]
