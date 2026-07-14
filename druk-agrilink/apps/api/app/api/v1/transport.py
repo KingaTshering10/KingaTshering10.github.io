@@ -519,8 +519,28 @@ def update_status(
         shipment.actual_pickup_at = utcnow()
     if payload.status in (ShipmentStatus.DELAYED, ShipmentStatus.INCIDENT_REPORTED) and payload.note:
         shipment.incident_notes = payload.note
+    _propagate_order_status(db, shipment, payload.status)
     db.commit()
     return _shipment_out(db, shipment)
+
+
+def _propagate_order_status(db, shipment: Shipment, status: ShipmentStatus) -> None:
+    """Keep the buyer order's lifecycle in step with its shipment."""
+    from app.domain.enums import OrderStatus
+    from app.domain.state_machine import transition_order
+
+    order_target = {
+        ShipmentStatus.COLLECTION_IN_PROGRESS: OrderStatus.COLLECTION_IN_PROGRESS,
+        ShipmentStatus.IN_TRANSIT: OrderStatus.IN_TRANSIT,
+    }.get(status)
+    if order_target is None:
+        return
+    proposal = db.get(MatchProposal, shipment.match_proposal_id)
+    item = db.get(BuyerOrderItem, proposal.buyer_order_item_id) if proposal else None
+    order = db.get(BuyerOrder, item.buyer_order_id) if item else None
+    if order is not None and order.order_status != order_target:
+        transition_order(order.order_status, order_target)
+        order.order_status = order_target
 
 
 @router.post("/shipments/{shipment_id}/stops/reorder")
