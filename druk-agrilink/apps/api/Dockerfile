@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir \
       "fastapi==0.115.12" "uvicorn[standard]==0.34.2" "pydantic==2.11.4" \
       "pydantic-settings==2.9.1" "SQLAlchemy==2.0.41" "alembic==1.15.2" \
       "psycopg[binary]==3.2.9" "passlib==1.7.4" "PyJWT==2.10.1" \
-      "python-multipart==0.0.20"
+      "python-multipart==0.0.20" "email-validator==2.2.0"
 
 COPY alembic.ini ./
 COPY alembic ./alembic
