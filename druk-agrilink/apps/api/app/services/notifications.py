@@ -62,7 +62,8 @@ TEMPLATES: dict[str, dict[str, tuple[str, str]]] = {
     "farmer_response_required": {
         "en": (
             "Your response is needed",
-            "You have an allocation offer: {quantity} {unit} of {product} at Nu. {price}/{unit}. Please accept or decline.",
+            "You have an allocation offer: {quantity} {unit} of {product} at "
+            "Nu. {price}/{unit}. Please accept or decline.",
         ),
         "dz": (f"{DZ_REVIEW} Your response is needed", f"{DZ_REVIEW} pending translation"),
     },

@@ -54,6 +54,31 @@ def auth_headers(client: TestClient, email: str, password: str = "Str0ngPassw0rd
     return {"Authorization": f"Bearer {tokens['access_token']}"}
 
 
+def create_admin(client: TestClient) -> dict:
+    """Admins cannot self-register; insert directly like the seed script does."""
+    from app.core.security import hash_password
+    from app.db.session import get_sessionmaker
+    from app.models import User
+
+    email = f"admin-{uuid.uuid4().hex[:10]}@drukagrilink.bt"
+    with get_sessionmaker()() as db:
+        user = User(
+            email=email,
+            password_hash=hash_password("Str0ngPassw0rd"),
+            role="admin",
+            is_verified=True,
+        )
+        db.add(user)
+        db.commit()
+    return {"email": email, "password": "Str0ngPassw0rd"}
+
+
+@pytest.fixture()
+def admin_headers(client):
+    admin = create_admin(client)
+    return auth_headers(client, admin["email"])
+
+
 @pytest.fixture()
 def make_user(client):
     """Factory: returns (user_dict, headers) for a fresh user of the given role."""
