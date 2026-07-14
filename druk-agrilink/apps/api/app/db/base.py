@@ -36,10 +36,14 @@ class SafeNumeric(TypeDecorator[Decimal]):
             return dialect.type_descriptor(String(64))
         return dialect.type_descriptor(Numeric(self.precision, self.scale))
 
+    def _quantum(self) -> Decimal:
+        return Decimal(1).scaleb(-self.scale)
+
     def process_bind_param(self, value: Decimal | int | str | None, dialect: Dialect) -> Any:
         if value is None:
             return None
         dec = value if isinstance(value, Decimal) else Decimal(str(value))
+        dec = dec.quantize(self._quantum())
         if dialect.name == "sqlite":
             return format(dec, "f")
         return dec
@@ -47,7 +51,7 @@ class SafeNumeric(TypeDecorator[Decimal]):
     def process_result_value(self, value: Any, dialect: Dialect) -> Decimal | None:
         if value is None:
             return None
-        return Decimal(str(value))
+        return Decimal(str(value)).quantize(self._quantum())
 
 
 def utcnow() -> datetime:

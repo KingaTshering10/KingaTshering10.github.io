@@ -99,11 +99,11 @@ def test_offline_conflict_detection(client, admin_headers):
     assert resp.status_code == 409
     body = resp.json()["error"]
     assert body["code"] == "CONFLICT_STALE_VERSION"
-    assert body["server_state"]["forecast_quantity"] == "320"
+    assert body["server_state"]["forecast_quantity"] == "320.00"
 
     # server value was NOT silently overwritten
     current = client.get(f"/api/v1/harvest-listings/{listing['id']}", headers=headers).json()
-    assert current["forecast_quantity"] == "320"
+    assert current["forecast_quantity"] == "320.00"
 
 
 def test_farmer_cannot_see_others_listing(client, admin_headers):

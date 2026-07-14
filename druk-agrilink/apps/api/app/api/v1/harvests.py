@@ -174,14 +174,17 @@ def update_listing(listing_id: uuid.UUID, payload: HarvestUpdate, db: DbSession,
     for field, value in updates.items():
         _record_revision(db, listing, field, getattr(listing, field), value, user.id)
         setattr(listing, field, value)
-    if "forecast_quantity" in updates and listing.status == HarvestStatus.CONFIRMED:
-        # forecast change after confirmation resets availability accounting
-        if listing.confirmed_quantity is not None and listing.confirmed_quantity > listing.forecast_quantity:
-            raise ValidationFailure(
-                "Confirmed quantity cannot exceed forecast quantity.",
-                code="HARVEST_QUANTITY_INVALID",
-                field="forecast_quantity",
-            )
+    if (
+        "forecast_quantity" in updates
+        and listing.status == HarvestStatus.CONFIRMED
+        and listing.confirmed_quantity is not None
+        and listing.confirmed_quantity > listing.forecast_quantity
+    ):
+        raise ValidationFailure(
+            "Confirmed quantity cannot exceed forecast quantity.",
+            code="HARVEST_QUANTITY_INVALID",
+            field="forecast_quantity",
+        )
     listing.row_version += 1
     db.commit()
     return listing

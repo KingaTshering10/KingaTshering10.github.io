@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 from typing import Generic, TypeVar
 
 from fastapi import Query
@@ -7,7 +8,7 @@ T = TypeVar("T")
 
 
 class Page(BaseModel, Generic[T]):
-    items: list[T]
+    items: Sequence[T]
     total: int
     page: int
     page_size: int
