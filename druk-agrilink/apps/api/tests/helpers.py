@@ -85,7 +85,12 @@ def make_verified_farmer(client, coord_headers, group, display_name=None, dzongk
     assert resp.status_code == 200, resp.text
     farm = client.post(
         "/api/v1/farms",
-        json={"farm_name": f"Farm {uuid.uuid4().hex[:4]}", "dzongkhag": dzongkhag},
+        json={
+            "farm_name": f"Farm {uuid.uuid4().hex[:4]}",
+            "dzongkhag": dzongkhag,
+            "latitude": f"27.{40 + len(display_name or '') % 20}",
+            "longitude": "89.40",
+        },
         headers=headers,
     ).json()
     return farmer, headers, profile, farm
