@@ -2,12 +2,14 @@ from fastapi import APIRouter
 
 from app.api.v1 import (
     admin,
+    analytics,
     auth,
     buyers,
     catalog,
     farmers,
     harvests,
     matching,
+    notifications,
     operations,
     payments,
     transport,
@@ -25,4 +27,6 @@ api_router.include_router(matching.router)
 api_router.include_router(transport.router)
 api_router.include_router(operations.router)
 api_router.include_router(payments.router)
+api_router.include_router(notifications.router)
+api_router.include_router(analytics.router)
 api_router.include_router(admin.router)
