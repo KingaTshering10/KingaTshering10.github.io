@@ -3,7 +3,7 @@
 # for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
 # cv_pdf: /assets/pdf/cv.pdf # uncomment and upload your CV to assets/pdf/ to show a CV download icon
 email: kinga.tshering@northsouth.edu # your email address
-github_username: KingaTshering10 # your GitHub username
+# github_username: KingaTshering10 # your GitHub username
 linkedin_username: kinga-tshering-036a99138 # your LinkedIn vanity name (the part after /in/)
 # inspirehep_id: 1010907 # Inspire HEP author ID (uncomment only if you have an InspireHEP profile)
 # rss_icon: false # comment this line to hide the RSS icon
