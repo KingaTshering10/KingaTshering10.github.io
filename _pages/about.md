@@ -13,9 +13,7 @@ profile:
   image_circular: false
   more_info: >
     <p>Dhaka, Bangladesh</p>
-    <p><a href="mailto:kinga.tshering@northsouth.edu">kinga.tshering@northsouth.edu</a></p>
-    <p><a href="mailto:kinstsring10@gmail.com">kinstsring10@gmail.com</a></p>
-
+    
 selected_papers: false
 social: true
 
