@@ -120,7 +120,7 @@ the foundations that shaped my research interests.
 <div class="edu-location">Dhaka, Bangladesh</div>
 
 <div class="edu-badges">
-  <span class="edu-badge">CGPA: 3.91 / 4.00</span>
+  <span class="edu-badge">CGPA: 3.90 / 4.00</span>
   <span class="edu-badge">Summa Cum Laude</span>
   <span class="edu-badge">His Majesty's Scholarship</span>
 </div>
