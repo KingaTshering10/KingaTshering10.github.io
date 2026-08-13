@@ -163,7 +163,7 @@ trustworthy applied artificial intelligence.
 
 <div class="cv-stats">
   <div class="cv-stat">
-    <span class="cv-stat-value">3.91 / 4.00</span>
+    <span class="cv-stat-value">3.90 / 4.00</span>
     <span class="cv-stat-label">Undergraduate CGPA</span>
   </div>
   <div class="cv-stat">
@@ -190,7 +190,7 @@ trustworthy applied artificial intelligence.
 Dhaka, Bangladesh _Class of 2026_
 
 <div class="cv-badges">
-  <span class="cv-badge">CGPA: 3.91 / 4.00</span>
+  <span class="cv-badge">CGPA: 3.90 / 4.00</span>
   <span class="cv-badge">Summa Cum Laude</span>
   <span class="cv-badge">His Majesty's Scholarship</span>
 </div>
