@@ -143,6 +143,13 @@ nav_order: 6
   .cv-project strong {
     color: var(--global-theme-color);
   }
+
+  .cv-project a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--global-theme-color);
+  }
 </style>
 
 <div class="cv-hero" markdown="1">
@@ -320,6 +327,18 @@ _2022–Present_
 
 <div class="cv-project" markdown="1">
 
+**DrukAgriLink** A full-stack platform that pools Bhutan's smallholder harvests
+for institutional buyers and coordinates shared transport, with transparent,
+farmer-first payments. Built with Next.js 14 and Supabase (real-time
+notifications, Postgres row-level security), featuring an in-app AI assistant
+powered by Google Gemini that guides users through the platform, plus a
+login-free public marketplace built on secure database views.
+<a href="https://druk-agri-link.vercel.app" target="_blank" rel="noopener">Live Demo →</a>
+
+</div>
+
+<div class="cv-project" markdown="1">
+
 **IntelliExpense** An ML-powered financial budgeting web application designed to
 support smarter personal finance management and intelligent expense tracking.
 
@@ -348,6 +367,12 @@ reserve parking spaces efficiently, reducing search time and parking frustration
   <span class="cv-badge">Computer Vision</span>
   <span class="cv-badge">NLP</span>
   <span class="cv-badge">Explainable AI</span>
+  <span class="cv-badge">Next.js</span>
+  <span class="cv-badge">TypeScript</span>
+  <span class="cv-badge">React</span>
+  <span class="cv-badge">Supabase</span>
+  <span class="cv-badge">Tailwind CSS</span>
+  <span class="cv-badge">PostgreSQL</span>
   <span class="cv-badge">LaTeX</span>
   <span class="cv-badge">Overleaf</span>
   <span class="cv-badge">Git</span>
