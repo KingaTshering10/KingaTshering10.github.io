@@ -158,7 +158,7 @@ machine learning.
 <div class="edu-location">Chhukha, Bhutan</div>
 
 <div class="edu-badges">
-  <span class="edu-badge">High Distiction%</span>
+  <span class="edu-badge">High Distiction</span>
   <span class="edu-badge">Science Stream</span>
 </div>
 
