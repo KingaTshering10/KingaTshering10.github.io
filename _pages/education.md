@@ -188,7 +188,7 @@ reasoning, and academic discipline.
 <div class="edu-location">Punakha, Bhutan</div>
 
 <div class="edu-badges">
-  <span class="edu-badge">Class 10 Percentage: 84.2%</span>
+  <span class="edu-badge">High Distinction</span>
   <span class="edu-badge">Leadership</span>
   <span class="edu-badge">Public Speaking</span>
 </div>
