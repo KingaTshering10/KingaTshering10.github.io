@@ -1,14 +1,10 @@
 name: Render a CV
+# NOTE: the automatic push trigger is deliberately removed. This workflow renders
+# _data/cv.yml into assets/rendercv/rendercv_output/ and pushes the PDF back to the
+# repo, where GitHub Pages serves it publicly. The CV is shared through an
+# access-controlled Google Drive folder instead, so publishing it here would defeat
+# that. Run it by hand only if you intend the output to be public.
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - "_data/cv.yml"
-      - "assets/rendercv/design.yaml"
-      - "assets/rendercv/locale.yaml"
-      - "assets/rendercv/settings.yaml"
   workflow_call:
   workflow_dispatch:
 permissions:

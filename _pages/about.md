@@ -12,9 +12,9 @@ profile:
   image_circular: false
   more_info: >
     <p>Dhaka, Bangladesh</p>
-    <p><a href="mailto:kinga.tshering@northsouth.edu">kinstsring10@gmail.com</a></p>
+    <p><a href="mailto:kinga.tshering@northsouth.edu">kinga.tshering@northsouth.edu</a></p>
     <p><a href="mailto:kinstsring10@gmail.com">kinstsring10@gmail.com</a></p>
-    <p><a href="/assets/pdf/Kinga_Tshering_CV.pdf">Curriculum Vitae</a></p>
+    <p><a href="https://drive.google.com/drive/folders/1HjItQXEwYGg8Ydpnpe-wxEdwfG1t6Hej?usp=sharing" target="_blank" rel="noopener">Curriculum Vitae</a></p>
 
 selected_papers: true
 social: true
@@ -47,7 +47,7 @@ latest_posts:
     <a class="kt-btn kt-btn--solid" href="{{ '/publications/' | relative_url }}">Publications</a>
     <a class="kt-btn" href="{{ '/research/' | relative_url }}">Research</a>
     <a class="kt-btn" href="{{ '/cv/' | relative_url }}">CV</a>
-    <a class="kt-btn" href="{{ '/assets/pdf/Kinga_Tshering_CV.pdf' | relative_url }}">Download PDF</a>
+    <a class="kt-btn" href="https://drive.google.com/drive/folders/1HjItQXEwYGg8Ydpnpe-wxEdwfG1t6Hej?usp=sharing" target="_blank" rel="noopener">CV on Google Drive</a>
   </div>
 </div>
 
