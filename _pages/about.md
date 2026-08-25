@@ -38,6 +38,8 @@ latest_posts:
     <span class="kt-rotator" data-kt-rotate="evaluating language models|pruning deep networks|interpreting representations|measuring reliability"></span>
   </p>
   <p>
+    <!--Currently a research intern at the <strong>University of Arizona</strong>, College of Information Science,
+    advised by <strong>Prof. Haw-Shiuan Chang</strong>. -->
     I graduated <em>summa cum laude</em> in Computer Science
     and Engineering from <strong>North South University</strong> as a recipient of <strong>His Majesty's Scholarship</strong>.
   </p>
