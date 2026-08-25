@@ -29,15 +29,17 @@ I am applying to graduate programs in machine learning and am open to research c
 ### Research Experience
 
 **Research Intern** — University of Arizona, College of Information Science · 2026–present
-*Advisor: Prof. Haw-Shiuan Chang* · Remote
+_Advisor: Prof. Haw-Shiuan Chang_ · Remote
+
 - Extending Asymptotic Probability Decoding (Chang et al., 2024) from extrapolation across model
-  *scale* to extrapolation across *context length*, removing the method's reliance on a family of
+  _scale_ to extrapolation across _context length_, removing the method's reliance on a family of
   same-recipe language models at multiple sizes.
-- Auditing the training pipeline — curve-fitting objective, top-*k* candidate selection, and
+- Auditing the training pipeline — curve-fitting objective, top-_k_ candidate selection, and
   numerical conditioning of the parametric decay fit — to isolate sources of training instability.
 
 **Undergraduate Researcher** — North South University, Dept. of ECE · 2024–2026
-*Advisor: Prof. Shafin Rahman* · Dhaka, Bangladesh
+_Advisor: Prof. Shafin Rahman_ · Dhaka, Bangladesh
+
 - Sparse subnetworks in hyperspectral image classification under the Lottery Ticket Hypothesis;
   iterative magnitude pruning across 3D CNN, hybrid 3D–2D CNN, and Mamba backbones on three
   benchmark scenes.
@@ -52,23 +54,23 @@ Own name in **bold**. \* denotes equal contribution.
 
 1. **TimeSpot: Benchmarking Geo-Temporal Understanding in Vision–Language Models in Real-World Settings**
    A. T. Wasi, S. Z. Ridoy, K. A. Tonmoy, **K. Tshering**, S. M. M. Hasan, W. Faisal, T. Mohiuddin, M. R. Parvez
-   *International Conference on Machine Learning (ICML)*, 2026 — **Accepted**
+   _International Conference on Machine Learning (ICML)_, 2026 — **Accepted**
 
 2. **From Language Specifications to Executable Turing Machines: Evaluating LLMs as Computational Machine Designers**
    S. Z. Ridoy, S. M. M. Hasan, A. T. Wasi, **K. Tshering**, K. A. Tonmoy, M. M. Khan
-   *Findings of the ACL: EMNLP*, 2026 — **Accepted**
+   _Findings of the ACL: EMNLP_, 2026 — **Accepted**
 
 3. **The Screen-Time Trap: An Explainable Machine Learning Framework for Pediatric Screen-Time Overuse Prediction**
    **K. Tshering**, M. H. Piya, A. Sharif, M. Islam
-   *Zorig Melong*, Vol. 9, No. 1, 2026 — **Published**
+   _Zorig Melong_, Vol. 9, No. 1, 2026 — **Published**
 
 4. **Black Box to Survivor Bands: Decoding Sparse Subnetworks in Hyperspectral Image Classification**
    O. Sadat\*, S. Kamal\*, **K. Tshering**\*, P. Sarkar\*
-   *Transactions on Machine Learning Research (TMLR)* — Under review
+   _Transactions on Machine Learning Research (TMLR)_ — Under review
 
 5. **H-DAFON: Hierarchical Dynamic Attribute-Guided Network for Few-Shot Open-Set Skin Lesion Recognition**
    **K. Tshering**, O. Nadeem, S. M. S. Islam, T. Elahi, R. Khan
-   *Systems and Soft Computing* — Under review
+   _Systems and Soft Computing_ — Under review
 
 6. **Beyond Strict Accuracy: A Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models**
    **K. Tshering**, S. Das — In preparation
@@ -76,7 +78,7 @@ Own name in **bold**. \* denotes equal contribution.
 ### Education
 
 **North South University**, Dhaka, Bangladesh · 2022–2026
-B.Sc. in Computer Science and Engineering — CGPA **3.90/4.00**, *Summa Cum Laude*
+B.Sc. in Computer Science and Engineering — CGPA **3.90/4.00**, _Summa Cum Laude_
 His Majesty's Scholarship, awarded nationally to top Bhutanese students
 
 ### Teaching
