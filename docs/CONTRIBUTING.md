@@ -70,7 +70,6 @@ If your change touches visual tests, install Playwright browsers once and run:
 
 ```bash
 npx playwright install chromium webkit
-npm run test:visual
 ```
 
 ## AI Agent Guidance

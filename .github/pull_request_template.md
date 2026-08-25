@@ -38,8 +38,6 @@ If plugin-related, provide:
 - [ ] `bundle exec jekyll build`
 - [ ] `npm run lint:prettier`
 - [ ] `npm run lint:style-contract`
-- [ ] Integration tests (`test/integration_*.sh`) as needed
-- [ ] Visual tests (`npm run test:visual`) as needed
 
 ## Notes
 
