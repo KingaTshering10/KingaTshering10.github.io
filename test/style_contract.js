@@ -78,11 +78,10 @@ for (const forbiddenGlobPath of [
   }
 }
 
-for (const requiredPath of ["test/visual", "test/integration_plugin_toggles.sh", "test/integration_distill.sh"]) {
-  if (!exists(requiredPath)) {
-    failures.push(`Starter integration/visual contract missing required path: \`${requiredPath}\`.`);
-  }
-}
+// The upstream starter also required test/visual and the integration scripts to
+// exist. This is a personal site rather than the starter repo, so that suite —
+// which asserts against al-folio's demo posts — was retired. The ownership
+// boundary checks above still apply and are the reason this lint is kept.
 
 if (failures.length > 0) {
   console.error("Starter style contract check failed:");

@@ -14,8 +14,6 @@ Follow `docs/BOUNDARIES.md`.
   - `Gemfile`, `_config.yml`
   - starter content (`_pages`, `_posts`, `_projects`, `_news`, `_data`)
   - docs
-  - integration tests (`test/integration_*.sh`)
-  - visual tests (`test/visual/*`)
 - Plugin repos own:
   - runtime/component logic
   - component correctness/unit tests
@@ -41,8 +39,6 @@ Do not reintroduce plugin-owned runtime assets into starter paths unless intenti
 - `_config.yml` - starter plugin wiring and feature flags
 - `_data/featured_plugins.yml` - plugin catalog metadata
 - `test/style_contract.js` - starter contract checks
-- `test/integration_*.sh` - cross-plugin integration checks
-- `test/visual/` - visual parity checks
 - `.github/workflows/` - CI workflows
 - `docs/` - user, maintainer, upgrade, and plugin-system documentation
 - `.agents/skills/al-folio-bootstrap/SKILL.md` - canonical agent workflow for new site setup
@@ -56,13 +52,6 @@ npm ci
 npm run lint:prettier
 npm run lint:style-contract
 bundle exec jekyll build --baseurl /al-folio
-bash test/integration_comments.sh
-bash test/integration_plugin_toggles.sh
-bash test/integration_distill.sh
-bash test/integration_bootstrap_compat.sh
-bash test/integration_upgrade_cli.sh
-npx playwright install chromium webkit
-npm run test:visual
 bundle exec al-folio upgrade audit
 bundle exec al-folio upgrade overrides audit
 bundle exec al-folio upgrade report
@@ -76,8 +65,7 @@ docker compose down
 
 Keep these workflows aligned when changing starter behavior:
 
-- `unit-tests.yml`
-- `visual-regression.yml`
+- `lint-style-contract.yml`
 - `upgrade-check.yml`
 - `deploy.yml`
 

@@ -4,207 +4,139 @@ title: education
 permalink: /education/
 nav: true
 nav_order: 4
+description: Degrees, academic standing, and honors.
 ---
 
-<style>
-  .edu-intro {
-    margin-bottom: 2rem;
-    padding: 1.2rem 1.4rem;
-    border-left: 4px solid var(--global-theme-color);
-    background: var(--global-code-bg-color);
-    border-radius: 0.75rem;
-  }
+<link rel="stylesheet" href="{{ '/assets/css/kt.css' | relative_url }}" />
+<script>document.documentElement.classList.add("kt-js");</script>
 
-  .edu-timeline {
-    position: relative;
-    margin-top: 1.5rem;
-  }
+<div data-kt-progress></div>
 
-  .edu-card {
-    margin-bottom: 1.5rem;
-    padding: 1.3rem 1.5rem;
-    border: 1px solid var(--global-divider-color);
-    border-radius: 1rem;
-    background: var(--global-bg-color);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .edu-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-  }
-
-  .edu-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.5rem;
-  }
-
-  .edu-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--global-theme-color);
-  }
-
-  .edu-date {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--global-text-color-light);
-  }
-
-  .edu-degree {
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-  }
-
-  .edu-location {
-    font-size: 0.95rem;
-    color: var(--global-text-color-light);
-    margin-bottom: 0.8rem;
-  }
-
-  .edu-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin: 0.7rem 0 1rem;
-  }
-
-  .edu-badge {
-    display: inline-block;
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    background: var(--global-code-bg-color);
-    border: 1px solid var(--global-divider-color);
-  }
-
-  details.edu-details {
-    margin-top: 0.7rem;
-  }
-
-  details.edu-details summary {
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--global-theme-color);
-  }
-
-  details.edu-details summary:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<div class="edu-intro" markdown="1">
-
-My academic journey has shaped my foundation in **computer science**,
-**research**, **leadership**, and **applied artificial intelligence**. The
-following timeline highlights my formal education, academic achievements, and
-the foundations that shaped my research interests.
-
+<div class="kt-hero kt-reveal" markdown="0">
+  <span class="kt-eyebrow">Education</span>
+  <p>
+    B.Sc. in Computer Science and Engineering from <strong>North South University</strong>, completed
+    <em>summa cum laude</em> with a CGPA of <strong>3.90 / 4.00</strong> on
+    <strong>His Majesty's Scholarship</strong>, awarded nationally to top Bhutanese students.
+  </p>
 </div>
 
-<div class="edu-timeline">
-
-<div class="edu-card" markdown="1">
-
-<div class="edu-header">
-  <div class="edu-title">North South University</div>
-  <div class="edu-date">Class of 2026</div>
+<div class="kt-stats">
+  <div class="kt-stat kt-reveal">
+    <span class="kt-stat-value">3.90</span>
+    <span class="kt-stat-label">CGPA / 4.00</span>
+  </div>
+  <div class="kt-stat kt-reveal" data-kt-delay="70">
+    <span class="kt-stat-value">Summa Cum Laude</span>
+    <span class="kt-stat-label">Academic standing</span>
+  </div>
+  <div class="kt-stat kt-reveal" data-kt-delay="140">
+    <span class="kt-stat-value" data-kt-count="6">6</span>
+    <span class="kt-stat-label">Consecutive topper certificates</span>
+  </div>
 </div>
 
-<div class="edu-degree">B.Sc. in Computer Science and Engineering</div>
-<div class="edu-location">Dhaka, Bangladesh</div>
+## Degrees
 
-<div class="edu-badges">
-  <span class="edu-badge">CGPA: 3.90 / 4.00</span>
-  <span class="edu-badge">Summa Cum Laude</span>
-  <span class="edu-badge">His Majesty's Scholarship</span>
+<div class="kt-timeline">
+
+<div class="kt-tl-item kt-card kt-reveal" markdown="1">
+
+<div class="kt-tl-head">
+  <span class="kt-tl-title">North South University</span>
+  <span class="kt-tl-date">2022 — 2026</span>
 </div>
 
-I completed my undergraduate degree in **Computer Science and Engineering** at
-**North South University**, Dhaka, Bangladesh. My undergraduate training focused
-on computer science, machine learning, software systems, database systems, and
-research-oriented artificial intelligence.
+<div class="kt-tl-org">B.Sc. in Computer Science and Engineering</div>
+<div class="kt-tl-sub">Dhaka, Bangladesh</div>
 
-<details class="edu-details" open>
-<summary>Academic and research focus</summary>
+<div class="kt-badges">
+  <span class="kt-badge kt-badge--accent">CGPA 3.90 / 4.00</span>
+  <span class="kt-badge kt-badge--accent">Summa Cum Laude</span>
+  <span class="kt-badge">His Majesty's Scholarship</span>
+</div>
 
-During my undergraduate studies, I developed strong academic and research
-interests in **machine learning**, **deep learning**, **computer vision**,
-**natural language processing**, **medical imaging**, **hyperspectral image
-classification**, and **trustworthy applied artificial intelligence**.
+Undergraduate training in computer science, machine learning, software systems, and database systems,
+alongside research in the Department of ECE from 2024.
 
-My research involvement includes projects on vision-language model evaluation,
-sparse subnetworks for hyperspectral image classification, few-shot open-set
-medical image recognition, LLM-based computational reasoning, and explainable
-machine learning.
+<details class="kt-details" markdown="1" open>
+<summary>Research developed during the degree</summary>
+
+Sparse subnetworks and pruning for hyperspectral image classification, evaluation protocols for
+post-training language model assessment, and benchmark construction for formal-language tasks — work
+that became four of the six papers listed under [publications]({{ '/publications/' | relative_url }}).
 
 </details>
 
 </div>
 
-<div class="edu-card" markdown="1">
+<div class="kt-tl-item kt-card kt-reveal" data-kt-delay="80" markdown="1">
 
-<div class="edu-header">
-  <div class="edu-title">Pakshikha Central School</div>
-  <div class="edu-date">2020–2021</div>
+<div class="kt-tl-head">
+  <span class="kt-tl-title">Pakshikha Central School</span>
+  <span class="kt-tl-date">2020 — 2021</span>
 </div>
 
-<div class="edu-degree">Higher Secondary Education Certificate — Science Stream</div>
-<div class="edu-location">Chhukha, Bhutan</div>
+<div class="kt-tl-org">Higher Secondary Education Certificate — Science Stream</div>
+<div class="kt-tl-sub">Chhukha, Bhutan</div>
 
-<div class="edu-badges">
-  <span class="edu-badge">High Distiction</span>
-  <span class="edu-badge">Science Stream</span>
+<div class="kt-badges">
+  <span class="kt-badge">High Distinction</span>
+  <span class="kt-badge">Science stream</span>
 </div>
 
-I completed my higher secondary education in the **science stream**, building a
-strong academic foundation in mathematics, science, analytical reasoning, and
-problem-solving.
-
-<details class="edu-details">
-<summary>Foundation developed</summary>
-
-This stage strengthened my preparation for undergraduate study in computer
-science and engineering by developing my analytical thinking, scientific
-reasoning, and academic discipline.
-
-</details>
+Foundation in mathematics, physics, and analytical reasoning that led into computer science and
+engineering.
 
 </div>
 
-<div class="edu-card" markdown="1">
+<div class="kt-tl-item kt-card kt-reveal" data-kt-delay="160" markdown="1">
 
-<div class="edu-header">
-  <div class="edu-title">Dechentsemo Central School</div>
-  <div class="edu-date">2013–2016</div>
+<div class="kt-tl-head">
+  <span class="kt-tl-title">Dechentsemo Central School</span>
+  <span class="kt-tl-date">2013 — 2016</span>
 </div>
 
-<div class="edu-degree">Secondary Education</div>
-<div class="edu-location">Punakha, Bhutan</div>
+<div class="kt-tl-org">Secondary Education</div>
+<div class="kt-tl-sub">Punakha, Bhutan</div>
 
-<div class="edu-badges">
-  <span class="edu-badge">High Distinction</span>
-  <span class="edu-badge">Leadership</span>
-  <span class="edu-badge">Public Speaking</span>
+<div class="kt-badges">
+  <span class="kt-badge">High Distinction</span>
+  <span class="kt-badge">Best Student of the Year, 2016</span>
 </div>
-
-I completed my secondary education with strong academic performance and active
-participation in school-level leadership, speaking, and academic activities.
-
-<details class="edu-details">
-<summary>Activities and development</summary>
-
-My secondary education helped shape my confidence, communication skills, and
-early leadership experience through school-level academic and extracurricular
-activities.
-
-</details>
 
 </div>
 
 </div>
+
+## Honors and awards
+
+<div class="kt-grid kt-grid--2">
+
+<div class="kt-card kt-reveal" markdown="1">
+<div class="kt-card-title">His Majesty's Scholarship</div>
+<div class="kt-card-meta">Government of Bhutan · 2022 — 2026</div>
+Awarded nationally to top Bhutanese students for undergraduate study abroad.
+</div>
+
+<div class="kt-card kt-reveal" data-kt-delay="70" markdown="1">
+<div class="kt-card-title">Academic Topper Certificates</div>
+<div class="kt-card-meta">Awarded by His Majesty the King of Bhutan · Grades 6–11</div>
+Awarded consecutively across six academic years.
+</div>
+
+<div class="kt-card kt-reveal" data-kt-delay="140" markdown="1">
+<div class="kt-card-title">Summa Cum Laude</div>
+<div class="kt-card-meta">North South University · 2026</div>
+Highest undergraduate academic distinction.
+</div>
+
+<div class="kt-card kt-reveal" data-kt-delay="210" markdown="1">
+<div class="kt-card-title">9th Golden Youth Award Camp</div>
+<div class="kt-card-meta">Bhutan · 2016</div>
+Fifth place.
+</div>
+
+</div>
+
+<script src="{{ '/assets/js/kt.js' | relative_url }}"></script>

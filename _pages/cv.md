@@ -4,384 +4,147 @@ title: CV
 permalink: /cv/
 nav: true
 nav_order: 6
+description: Curriculum vitae — full PDF available for download.
 ---
 
-<style>
-  .cv-hero {
-    margin-bottom: 2rem;
-    padding: 1.4rem 1.5rem;
-    border-left: 4px solid var(--global-theme-color);
-    background: var(--global-code-bg-color);
-    border-radius: 0.9rem;
-  }
+<link rel="stylesheet" href="{{ '/assets/css/kt.css' | relative_url }}" />
+<script>document.documentElement.classList.add("kt-js");</script>
 
-  .cv-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 1rem;
-  }
+<div data-kt-progress></div>
 
-  .cv-button {
-    display: inline-block;
-    padding: 0.55rem 0.9rem;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid var(--global-theme-color);
-    color: var(--global-theme-color);
-    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-  }
-
-  .cv-button:hover {
-    transform: translateY(-2px);
-    background: var(--global-theme-color);
-    color: var(--global-bg-color);
-    text-decoration: none;
-  }
-
-  .cv-grid {
-    display: grid;
-    gap: 1.4rem;
-    margin-top: 1.5rem;
-  }
-
-  .cv-card {
-    padding: 1.25rem 1.45rem;
-    border: 1px solid var(--global-divider-color);
-    border-radius: 1rem;
-    background: var(--global-bg-color);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .cv-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-  }
-
-  .cv-card-title {
-    margin-bottom: 0.8rem;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--global-theme-color);
-  }
-
-  .cv-meta {
-    color: var(--global-text-color-light);
-    font-size: 0.95rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .cv-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin: 0.7rem 0 1rem;
-  }
-
-  .cv-badge {
-    display: inline-block;
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    background: var(--global-code-bg-color);
-    border: 1px solid var(--global-divider-color);
-  }
-
-  .cv-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-    gap: 0.8rem;
-    margin: 1rem 0;
-  }
-
-  .cv-stat {
-    padding: 0.85rem;
-    border-radius: 0.8rem;
-    background: var(--global-code-bg-color);
-    border: 1px solid var(--global-divider-color);
-    text-align: center;
-  }
-
-  .cv-stat-value {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--global-theme-color);
-  }
-
-  .cv-stat-label {
-    display: block;
-    font-size: 0.82rem;
-    color: var(--global-text-color-light);
-  }
-
-  details.cv-details {
-    margin-top: 0.8rem;
-  }
-
-  details.cv-details summary {
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--global-theme-color);
-  }
-
-  details.cv-details summary:hover {
-    text-decoration: underline;
-  }
-
-  .cv-project {
-    margin-bottom: 1rem;
-    padding: 0.9rem 1rem;
-    border-radius: 0.8rem;
-    background: var(--global-code-bg-color);
-    border: 1px solid var(--global-divider-color);
-  }
-
-  .cv-project strong {
-    color: var(--global-theme-color);
-  }
-
-  .cv-project a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-weight: 600;
-    color: var(--global-theme-color);
-  }
-</style>
-
-<div class="cv-hero" markdown="1">
-
-I am **Kinga Tshering**, a Computer Science and Engineering graduate from
-**North South University**, Dhaka, Bangladesh. My academic and research work
-focuses on machine learning, computer vision, natural language processing,
-medical imaging, hyperspectral image classification, explainable AI, and
-trustworthy applied artificial intelligence.
-
-<div class="cv-actions">
-  <a class="cv-button" href="/assets/pdf/Kinga_Tshering_CV.pdf">Download Full CV</a>
-  <a class="cv-button" href="/publications/">View Publications</a>
-  <a class="cv-button" href="/experience/">View Experience</a>
-</div>
-
-</div>
-
-<div class="cv-stats">
-  <div class="cv-stat">
-    <span class="cv-stat-value">3.90 / 4.00</span>
-    <span class="cv-stat-label">Undergraduate CGPA</span>
-  </div>
-  <div class="cv-stat">
-    <span class="cv-stat-value">Summa Cum Laude</span>
-    <span class="cv-stat-label">Academic Standing</span>
-  </div>
-  <div class="cv-stat">
-    <span class="cv-stat-value">ICML 2026</span>
-    <span class="cv-stat-label">Accepted Research</span>
-  </div>
-  <div class="cv-stat">
-    <span class="cv-stat-value">2024–2025</span>
-    <span class="cv-stat-label">Teaching Assistant</span>
+<div class="kt-hero kt-reveal" markdown="0">
+  <span class="kt-eyebrow">Curriculum Vitae</span>
+  <p>
+    <strong>Kinga Tshering</strong> — Research Intern at the University of Arizona and B.Sc. Computer
+    Science and Engineering graduate of North South University. Working on language model evaluation,
+    efficient deep learning, and interpretability.
+  </p>
+  <div class="kt-actions">
+    <a class="kt-btn kt-btn--solid" href="{{ '/assets/pdf/Kinga_Tshering_CV.pdf' | relative_url }}">Download CV (PDF)</a>
+    <a class="kt-btn" href="{{ '/publications/' | relative_url }}">Publications</a>
+    <a class="kt-btn" href="{{ '/research/' | relative_url }}">Research</a>
   </div>
 </div>
 
-<div class="cv-grid">
+<div class="kt-grid kt-grid--2">
 
-<div class="cv-card" markdown="1">
+<div class="kt-card kt-reveal" markdown="1">
 
-<div class="cv-card-title">Education</div>
+<div class="kt-card-title">Education</div>
 
-**B.Sc. in Computer Science and Engineering** **North South University**,
-Dhaka, Bangladesh _Class of 2026_
+**B.Sc. in Computer Science and Engineering**
+North South University, Dhaka, Bangladesh · 2022–2026
 
-<div class="cv-badges">
-  <span class="cv-badge">CGPA: 3.90 / 4.00</span>
-  <span class="cv-badge">Summa Cum Laude</span>
-  <span class="cv-badge">His Majesty's Scholarship</span>
-</div>
-
-My undergraduate training focused on computer science, machine learning,
-software systems, database systems, and research-oriented artificial
-intelligence.
-
-</div>
-
-<div class="cv-card" markdown="1">
-
-<div class="cv-card-title">Research Interests</div>
-
-My research interests lie at the intersection of machine learning and
-real-world applications.
-
-<div class="cv-badges">
-  <span class="cv-badge">Machine Learning</span>
-  <span class="cv-badge">Deep Learning</span>
-  <span class="cv-badge">Computer Vision</span>
-  <span class="cv-badge">Vision-Language Models</span>
-  <span class="cv-badge">NLP</span>
-  <span class="cv-badge">Medical Imaging</span>
-  <span class="cv-badge">Hyperspectral Imaging</span>
-  <span class="cv-badge">Explainable AI</span>
-  <span class="cv-badge">Trustworthy AI</span>
-</div>
-
-<details class="cv-details" open>
-<summary>Research direction</summary>
-
-I am particularly interested in building AI systems that are accurate,
-interpretable, robust, and useful in practical domains such as healthcare,
-remote sensing, reasoning, and multimodal understanding.
-
-</details>
-
-</div>
-
-<div class="cv-card" markdown="1">
-
-<div class="cv-card-title">Publications and Research</div>
-
-I have contributed to accepted, published, and under-review research associated
-with venues and journals such as **ICML 2026**, **TMLR**, **System and Soft Computing**,
-**EMNLP**, and **Zorig Melong Journal**.
-
-<div class="cv-badges">
-  <span class="cv-badge">ICML 2026</span>
-  <span class="cv-badge">TMLR</span>
-  <span class="cv-badge">System and Soft Computing</span>
-  <span class="cv-badge">EMNLP</span>
-  <span class="cv-badge">Zorig Melong Journal</span>
-</div>
-
-<details class="cv-details" open>
-<summary>Research focus areas</summary>
-
-- Vision-language model evaluation and benchmarking.
-- Sparse subnetworks for hyperspectral image classification.
-- Few-shot open-set skin lesion recognition.
-- LLM-based computational reasoning.
-- Explainable machine learning for pediatric screen-time overuse prediction.
-
-</details>
-
-</div>
-
-<div class="cv-card" markdown="1">
-
-<div class="cv-card-title">Teaching Experience</div>
-
-**Teaching Assistant** **North South University**, Dhaka, Bangladesh _2024–2025_
-
-<div class="cv-badges">
-  <span class="cv-badge">CSE215: Java</span>
-  <span class="cv-badge">CSE332: Computer Architecture</span>
-  <span class="cv-badge">Student Mentoring</span>
-  <span class="cv-badge">Grading Support</span>
-</div>
-
-I supported undergraduate Computer Science and Engineering courses by assisting
-students with course concepts, programming, problem-solving, assignments, and
-exam preparation.
-
-<details class="cv-details">
-<summary>Responsibilities</summary>
-
-- Facilitated TA hours and academic support sessions.
-- Assisted students with Java programming and object-oriented programming.
-- Supported computer architecture and core CSE concept clarification.
-- Helped with assignment grading and examination-related activities.
-- Coordinated with course instructors to support student learning.
-
-</details>
-
-</div>
-
-<div class="cv-card" markdown="1">
-
-<div class="cv-card-title">Leadership and Service</div>
-
-**Bhutanese Student Coordinator** **North South University**, Dhaka, Bangladesh
-_2022–Present_
-
-**Volunteer President** **CSO Nazhoen Lamtoen**, Bhutan _2020–2021_
-
-<details class="cv-details" open>
-<summary>Selected initiatives</summary>
-
-- Supported Bhutanese students through academic, administrative, and community
-  coordination.
-- Organized a community cleaning campaign in Phuentsholing on World Mental
-  Health Day.
-- Advocated for the HeForShe campaign in educational institutions in Bhutan.
-- Supported children in conflict with the law alongside the Regional Case
-  Management Officer of Nazhoen Lamtoen.
-
-</details>
-
-</div>
-
-<div class="cv-card" markdown="1">
-
-<div class="cv-card-title">Selected Projects</div>
-
-<div class="cv-project" markdown="1">
-
-**DrukAgriLink** A full-stack platform that pools Bhutan's smallholder harvests
-for institutional buyers and coordinates shared transport, with transparent,
-farmer-first payments. Built with Next.js 14 and Supabase (real-time
-notifications, Postgres row-level security), featuring an in-app AI assistant
-powered by Google Gemini that guides users through the platform, plus a
-login-free public marketplace built on secure database views.
-<a href="https://druk-agri-link.vercel.app" target="_blank" rel="noopener">Live Demo →</a>
-
-</div>
-
-<div class="cv-project" markdown="1">
-
-**IntelliExpense** An ML-powered financial budgeting web application designed to
-support smarter personal finance management and intelligent expense tracking.
-
-</div>
-
-<div class="cv-project" markdown="1">
-
-**FindMySpot** A smart parking reservation system that helps users discover and
-reserve parking spaces efficiently, reducing search time and parking frustration.
-
+<div class="kt-badges">
+  <span class="kt-badge kt-badge--accent">CGPA 3.90 / 4.00</span>
+  <span class="kt-badge kt-badge--accent">Summa Cum Laude</span>
+  <span class="kt-badge">His Majesty's Scholarship</span>
 </div>
 
 </div>
 
-<div class="cv-card" markdown="1">
+<div class="kt-card kt-reveal" data-kt-delay="70" markdown="1">
 
-<div class="cv-card-title">Technical Skills</div>
+<div class="kt-card-title">Research interests</div>
 
-<div class="cv-badges">
-  <span class="cv-badge">Python</span>
-  <span class="cv-badge">Java</span>
-  <span class="cv-badge">C</span>
-  <span class="cv-badge">C++</span>
-  <span class="cv-badge">SQL</span>
-  <span class="cv-badge">Deep Learning</span>
-  <span class="cv-badge">Computer Vision</span>
-  <span class="cv-badge">NLP</span>
-  <span class="cv-badge">Explainable AI</span>
-  <span class="cv-badge">Next.js</span>
-  <span class="cv-badge">TypeScript</span>
-  <span class="cv-badge">React</span>
-  <span class="cv-badge">Supabase</span>
-  <span class="cv-badge">Tailwind CSS</span>
-  <span class="cv-badge">PostgreSQL</span>
-  <span class="cv-badge">LaTeX</span>
-  <span class="cv-badge">Overleaf</span>
-  <span class="cv-badge">Git</span>
-  <span class="cv-badge">GitHub</span>
-  <span class="cv-badge">HTML</span>
-  <span class="cv-badge">CSS</span>
-  <span class="cv-badge">JavaScript</span>
+Evaluation and reliability of large language models. Efficient and resource-aware deep learning,
+including network pruning and model compression. Interpretability of learned representations.
+
+</div>
+
+<div class="kt-card kt-reveal" markdown="1">
+
+<div class="kt-card-title">Research experience</div>
+
+**Research Intern** — University of Arizona, College of Information Science · 2026–present
+_Advisor: Prof. Haw-Shiuan Chang_
+
+**Undergraduate Researcher** — North South University, Dept. of ECE · 2024–2026
+_Advisor: Prof. Shafin Rahman_
+
+<div class="kt-actions">
+  <a class="kt-btn" href="{{ '/research/' | relative_url }}">Full detail</a>
+</div>
+
+</div>
+
+<div class="kt-card kt-reveal" data-kt-delay="70" markdown="1">
+
+<div class="kt-card-title">Teaching</div>
+
+**Undergraduate Teaching Assistant** — North South University, Dept. of ECE · 2024–2025
+
+<div class="kt-badges">
+  <span class="kt-badge">CSE 215 — Programming Language II (Java)</span>
+  <span class="kt-badge">CSE 332 — Computer Architecture</span>
 </div>
 
 </div>
 
 </div>
+
+## Publications and preprints
+
+Own name in **bold**. \* denotes equal contribution.
+
+<div class="kt-pub kt-reveal" markdown="1">
+<span class="kt-pub-venue">ICML 2026 · Accepted</span>
+<div class="kt-pub-title">TimeSpot: Benchmarking Geo-Temporal Understanding in Vision–Language Models in Real-World Settings</div>
+<div class="kt-pub-authors">A. T. Wasi, S. Z. Ridoy, K. A. Tonmoy, <strong>K. Tshering</strong>, S. M. M. Hasan, W. Faisal, T. Mohiuddin, M. R. Parvez</div>
+</div>
+
+<div class="kt-pub kt-reveal" markdown="1">
+<span class="kt-pub-venue">EMNLP 2026 Findings · Accepted</span>
+<div class="kt-pub-title">From Language Specifications to Executable Turing Machines: Evaluating LLMs as Computational Machine Designers</div>
+<div class="kt-pub-authors">S. Z. Ridoy, S. M. M. Hasan, A. T. Wasi, <strong>K. Tshering</strong>, K. A. Tonmoy, M. M. Khan</div>
+</div>
+
+<div class="kt-pub kt-reveal" markdown="1">
+<span class="kt-pub-venue">Zorig Melong, Vol. 9 No. 1 · Published</span>
+<div class="kt-pub-title">The Screen-Time Trap: An Explainable Machine Learning Framework for Pediatric Screen-Time Overuse Prediction</div>
+<div class="kt-pub-authors"><strong>K. Tshering</strong>, M. H. Piya, A. Sharif, M. Islam</div>
+</div>
+
+<div class="kt-pub kt-reveal" markdown="1">
+<span class="kt-pub-venue">TMLR · Under review</span>
+<div class="kt-pub-title">Black Box to Survivor Bands: Decoding Sparse Subnetworks in Hyperspectral Image Classification</div>
+<div class="kt-pub-authors">O. Sadat*, S. Kamal*, <strong>K. Tshering</strong>*, P. Sarkar*</div>
+</div>
+
+<div class="kt-pub kt-reveal" markdown="1">
+<span class="kt-pub-venue">Systems and Soft Computing · Under review</span>
+<div class="kt-pub-title">H-DAFON: Hierarchical Dynamic Attribute-Guided Network for Few-Shot Open-Set Skin Lesion Recognition</div>
+<div class="kt-pub-authors"><strong>K. Tshering</strong>, O. Nadeem, S. M. S. Islam, T. Elahi, R. Khan</div>
+</div>
+
+<div class="kt-pub kt-reveal" markdown="1">
+<span class="kt-pub-venue">In preparation</span>
+<div class="kt-pub-title">Beyond Strict Accuracy: A Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models</div>
+<div class="kt-pub-authors"><strong>K. Tshering</strong>, S. Das</div>
+</div>
+
+## References
+
+<div class="kt-grid kt-grid--2">
+
+<div class="kt-card kt-reveal" markdown="1">
+<div class="kt-card-title">Dr. Shafin Rahman</div>
+<div class="kt-card-meta">Associate Professor · North South University, Dhaka, Bangladesh</div>
+<a href="mailto:shafin.rahman@northsouth.edu">shafin.rahman@northsouth.edu</a>
+</div>
+
+<div class="kt-card kt-reveal" data-kt-delay="70" markdown="1">
+<div class="kt-card-title">Dr. Rajesh Palit</div>
+<div class="kt-card-meta">Professor · North South University, Dhaka, Bangladesh</div>
+<a href="mailto:rajesh.palit@northsouth.edu">rajesh.palit@northsouth.edu</a>
+</div>
+
+<div class="kt-card kt-reveal" data-kt-delay="140" markdown="1">
+<div class="kt-card-title">Dr. Shams Forruque Ahmed</div>
+<div class="kt-card-meta">Professor · Sunway University, Selangor, Malaysia</div>
+<a href="mailto:shamsa@sunway.edu.my">shamsa@sunway.edu.my</a>
+</div>
+
+</div>
+
+<script src="{{ '/assets/js/kt.js' | relative_url }}"></script>
