@@ -1,8 +1,10 @@
 cv:
   name: Kinga Tshering
   label: Machine Learning Researcher
-  email: kinstsring10@gmail.com
-  phone: "+880 1408 496248"
+  # Contact details are deliberately omitted. This file lives in a public repo and
+  # the CV itself is shared through an access-controlled Drive folder; putting a
+  # phone number and address here would publish exactly what that gating protects.
+  # Add them locally if you ever render this with `rendercv` for private use.
   location: Dhaka, Bangladesh
   image: ""
   summary: >-

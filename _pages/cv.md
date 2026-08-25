@@ -20,10 +20,14 @@ description: Curriculum vitae — full PDF available for download.
     efficient deep learning, and interpretability.
   </p>
   <div class="kt-actions">
-    <a class="kt-btn kt-btn--solid" href="{{ '/assets/pdf/Kinga_Tshering_CV.pdf' | relative_url }}">Download CV (PDF)</a>
+    <a class="kt-btn kt-btn--solid" href="https://drive.google.com/drive/folders/1HjItQXEwYGg8Ydpnpe-wxEdwfG1t6Hej?usp=sharing" target="_blank" rel="noopener">CV on Google Drive</a>
     <a class="kt-btn" href="{{ '/publications/' | relative_url }}">Publications</a>
     <a class="kt-btn" href="{{ '/research/' | relative_url }}">Research</a>
   </div>
+  <p style="margin-top: 0.9rem; font-size: 0.9rem; color: var(--global-text-color-light)">
+    The full PDF is shared on request — Google Drive will prompt you for access. Everything on this
+    page is current.
+  </p>
 </div>
 
 <div class="kt-grid kt-grid--2">
