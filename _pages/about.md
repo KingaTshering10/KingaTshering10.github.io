@@ -4,7 +4,7 @@ title: about
 permalink: /
 nav: false
 nav_order: 1
-subtitle: Research Intern, University of Arizona · B.Sc. Computer Science and Engineering, North South University
+subtitle: B.Sc. Computer Science and Engineering, North South University
 
 profile:
   align: right
@@ -12,6 +12,7 @@ profile:
   image_circular: false
   more_info: >
     <p>Dhaka, Bangladesh</p>
+    <p><a href="mailto:kinga.tshering@northsouth.edu">kinstsring10@gmail.com</a></p>
     <p><a href="mailto:kinstsring10@gmail.com">kinstsring10@gmail.com</a></p>
     <p><a href="/assets/pdf/Kinga_Tshering_CV.pdf">Curriculum Vitae</a></p>
 
