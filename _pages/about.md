@@ -31,19 +31,19 @@ latest_posts:
 <link rel="stylesheet" href="{{ '/assets/css/kt.css' | relative_url }}" />
 <script>document.documentElement.classList.add("kt-js");</script>
 
-<div class="kt-hero kt-reveal" markdown="0">
-  <span class="kt-eyebrow">Machine Learning Research</span>
-  <p>
+<div class="kt-hero kt-enter" markdown="0" data-kt-constellation>
+  <span class="kt-eyebrow kt-enter">Machine Learning Research</span>
+  <p class="kt-enter">
     I am <strong>Kinga Tshering</strong>. I work on
     <span class="kt-rotator" data-kt-rotate="evaluating language models|pruning deep networks|interpreting representations|measuring reliability"></span>
   </p>
-  <p>
+  <p class="kt-enter">
     <!--Currently a research intern at the <strong>University of Arizona</strong>, College of Information Science,
     advised by <strong>Prof. Haw-Shiuan Chang</strong>. -->
     I graduated <em>summa cum laude</em> in Computer Science
     and Engineering from <strong>North South University</strong> as a recipient of <strong>His Majesty's Scholarship</strong>.
   </p>
-  <div class="kt-actions">
+  <div class="kt-actions kt-enter">
     <a class="kt-btn kt-btn--solid" href="{{ '/publications/' | relative_url }}">Publications</a>
     <a class="kt-btn" href="{{ '/research/' | relative_url }}">Research</a>
     <a class="kt-btn" href="{{ '/cv/' | relative_url }}">CV</a>
@@ -51,20 +51,20 @@ latest_posts:
   </div>
 </div>
 
-<div class="kt-stats">
-  <div class="kt-stat kt-reveal" data-kt-delay="0">
+<div class="kt-stats" data-kt-stagger="80">
+  <div class="kt-stat kt-tilt kt-reveal">
     <span class="kt-stat-value">3.90</span>
     <span class="kt-stat-label">CGPA / 4.00 · Summa Cum Laude</span>
   </div>
-  <div class="kt-stat kt-reveal" data-kt-delay="70">
+  <div class="kt-stat kt-tilt kt-reveal">
     <span class="kt-stat-value" data-kt-count="6">6</span>
     <span class="kt-stat-label">Papers and preprints</span>
   </div>
-  <div class="kt-stat kt-reveal" data-kt-delay="140">
+  <div class="kt-stat kt-tilt kt-reveal">
     <span class="kt-stat-value" data-kt-count="2">2</span>
     <span class="kt-stat-label">Accepted at ICML &amp; EMNLP 2026</span>
   </div>
-  <div class="kt-stat kt-reveal" data-kt-delay="210">
+  <div class="kt-stat kt-tilt kt-reveal">
     <span class="kt-stat-value" data-kt-count="2">2</span>
     <span class="kt-stat-label">Courses taught as TA</span>
   </div>
@@ -85,9 +85,9 @@ mattered in the first place. I like problems where measuring the thing properly 
 contribution.
 </p>
 
-<div class="kt-grid kt-grid--2">
+<div class="kt-grid kt-grid--2" data-kt-stagger="90">
 
-<div class="kt-card kt-reveal" markdown="1">
+<div class="kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-card-title">Language model evaluation</div>
 
@@ -104,7 +104,7 @@ spanning the Chomsky hierarchy, and geo-temporal grounding in vision–language 
 
 </div>
 
-<div class="kt-card kt-reveal" data-kt-delay="80" markdown="1">
+<div class="kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-card-title">Efficient deep learning</div>
 
@@ -121,7 +121,7 @@ survive and what that says about what the model learned.
 
 </div>
 
-<div class="kt-card kt-reveal" markdown="1">
+<div class="kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-card-title">Decoding and inference</div>
 
@@ -137,7 +137,7 @@ conditioning that make the parametric fit unstable.
 
 </div>
 
-<div class="kt-card kt-reveal" data-kt-delay="80" markdown="1">
+<div class="kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-card-title">Applied and medical imaging</div>
 
@@ -155,7 +155,7 @@ explainable ML for pediatric screen-time overuse prediction.
 
 </div>
 
-<div class="kt-hero kt-reveal" markdown="0" style="margin-top: 2rem">
+<div class="kt-hero kt-reveal" markdown="0" style="margin-top: 2rem" data-kt-constellation>
   <span class="kt-eyebrow">Open to</span>
   <p>
     I am applying to <strong>graduate programs in machine learning</strong> and am open to research

@@ -342,9 +342,325 @@
     apply("all");
   }
 
+  /* ------------------------------------------------------ theme colour */
+
+  function themeRGB() {
+    var raw = getComputedStyle(document.documentElement).getPropertyValue("--global-theme-color").trim();
+    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(raw);
+    if (m) return [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)];
+    m = /rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/i.exec(raw);
+    if (m) return [+m[1], +m[2], +m[3]];
+    return [181, 9, 172];
+  }
+
+  /* --------------------------------------------- hero constellation */
+
+  function initConstellation() {
+    var hero = document.querySelector("[data-kt-constellation]");
+    if (!hero || reduceMotion) return;
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "kt-constellation";
+    canvas.setAttribute("aria-hidden", "true");
+    hero.appendChild(canvas);
+
+    var ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = 0;
+    var h = 0;
+    var nodes = [];
+    var rgb = themeRGB();
+    var pointer = { x: -9999, y: -9999 };
+    var running = false;
+    var frame = null;
+
+    var LINK = 128; // px within which two nodes are joined
+    var PULL = 170; // px within which the cursor tugs a node
+
+    function resize() {
+      var rect = hero.getBoundingClientRect();
+      w = Math.max(rect.width, 1);
+      h = Math.max(rect.height, 1);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Density scales with area but stays bounded on large screens.
+      var target = Math.min(Math.round((w * h) / 13000), 46);
+      nodes = [];
+      for (var i = 0; i < target; i++) {
+        nodes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.22,
+          r: 1 + Math.random() * 1.4,
+        });
+      }
+    }
+
+    function step() {
+      ctx.clearRect(0, 0, w, h);
+
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        n.x += n.vx;
+        n.y += n.vy;
+
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        n.x = Math.max(0, Math.min(w, n.x));
+        n.y = Math.max(0, Math.min(h, n.y));
+
+        // Cursor tug — eased, never enough to fling a node across the box.
+        var dxp = pointer.x - n.x;
+        var dyp = pointer.y - n.y;
+        var dp = Math.sqrt(dxp * dxp + dyp * dyp);
+        if (dp < PULL && dp > 0.5) {
+          var force = (1 - dp / PULL) * 0.35;
+          n.x += (dxp / dp) * force;
+          n.y += (dyp / dp) * force;
+        }
+
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ",0.55)";
+        ctx.fill();
+      }
+
+      for (var a = 0; a < nodes.length; a++) {
+        for (var b = a + 1; b < nodes.length; b++) {
+          var dx = nodes[a].x - nodes[b].x;
+          var dy = nodes[a].y - nodes[b].y;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d > LINK) continue;
+          ctx.beginPath();
+          ctx.moveTo(nodes[a].x, nodes[a].y);
+          ctx.lineTo(nodes[b].x, nodes[b].y);
+          ctx.strokeStyle = "rgba(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + "," + (0.3 * (1 - d / LINK)).toFixed(3) + ")";
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      frame = window.requestAnimationFrame(step);
+    }
+
+    function start() {
+      if (running) return;
+      running = true;
+      frame = window.requestAnimationFrame(step);
+    }
+
+    function stop() {
+      running = false;
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = null;
+    }
+
+    hero.addEventListener(
+      "pointermove",
+      function (e) {
+        var rect = hero.getBoundingClientRect();
+        pointer.x = e.clientX - rect.left;
+        pointer.y = e.clientY - rect.top;
+      },
+      { passive: true }
+    );
+
+    hero.addEventListener("pointerleave", function () {
+      pointer.x = -9999;
+      pointer.y = -9999;
+    });
+
+    // Only burn frames while the hero is actually on screen.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries[0].isIntersecting ? start() : stop();
+      }).observe(hero);
+    } else {
+      start();
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      document.hidden ? stop() : start();
+    });
+
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(resize, 180);
+    });
+
+    // al-folio swaps the palette on theme change; re-read it when that happens.
+    new MutationObserver(function () {
+      rgb = themeRGB();
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
+
+    resize();
+    window.setTimeout(function () {
+      canvas.classList.add("kt-in");
+    }, 120);
+  }
+
+  /* ------------------------------------------------- hero entrance */
+
+  function initEnter() {
+    var items = document.querySelectorAll(".kt-enter");
+    items.forEach(function (el, i) {
+      var delay = reduceMotion ? 0 : 90 * i;
+      window.setTimeout(function () {
+        el.classList.add("kt-in");
+      }, delay);
+    });
+  }
+
+  /* --------------------------------------------------------- tilt */
+
+  function initTilt() {
+    if (reduceMotion || !window.matchMedia("(hover: hover)").matches) return;
+
+    document.querySelectorAll(".kt-tilt").forEach(function (el) {
+      var raf = null;
+
+      el.addEventListener(
+        "pointermove",
+        function (e) {
+          if (raf) return;
+          raf = window.requestAnimationFrame(function () {
+            raf = null;
+            var r = el.getBoundingClientRect();
+            var px = (e.clientX - r.left) / r.width - 0.5;
+            var py = (e.clientY - r.top) / r.height - 0.5;
+            el.style.transform =
+              "perspective(700px) rotateX(" + (-py * 7).toFixed(2) + "deg) rotateY(" + (px * 7).toFixed(2) + "deg) translateY(-4px)";
+          });
+        },
+        { passive: true }
+      );
+
+      el.addEventListener("pointerleave", function () {
+        el.style.transform = "";
+      });
+    });
+  }
+
+  /* ---------------------------------------------- magnetic buttons */
+
+  function initMagnetic() {
+    if (reduceMotion || !window.matchMedia("(hover: hover)").matches) return;
+
+    document.querySelectorAll(".kt-btn").forEach(function (btn) {
+      btn.addEventListener(
+        "pointermove",
+        function (e) {
+          var r = btn.getBoundingClientRect();
+          var dx = e.clientX - (r.left + r.width / 2);
+          var dy = e.clientY - (r.top + r.height / 2);
+          btn.style.transform = "translate(" + (dx * 0.16).toFixed(2) + "px," + (dy * 0.22 - 2).toFixed(2) + "px)";
+        },
+        { passive: true }
+      );
+
+      btn.addEventListener("pointerleave", function () {
+        btn.style.transform = "";
+      });
+    });
+  }
+
+  /* ------------------------------------------------------ stagger */
+
+  function initStagger() {
+    document.querySelectorAll("[data-kt-stagger]").forEach(function (group) {
+      var step = parseInt(group.getAttribute("data-kt-stagger") || "70", 10);
+      var i = 0;
+      group.querySelectorAll(".kt-reveal").forEach(function (el) {
+        if (!el.hasAttribute("data-kt-delay")) el.setAttribute("data-kt-delay", String(i * step));
+        i++;
+      });
+    });
+  }
+
+  /* ------------------------------------------ scroll-drawn timeline */
+
+  function initTimelines() {
+    var lines = document.querySelectorAll(".kt-timeline");
+    if (!lines.length || reduceMotion) return;
+
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      lines.forEach(function (line) {
+        var r = line.getBoundingClientRect();
+        var anchor = window.innerHeight * 0.72;
+        var progress = (anchor - r.top) / Math.max(r.height, 1);
+        line.style.setProperty("--kt-tl-progress", Math.max(0, Math.min(1, progress)).toFixed(3));
+
+        line.querySelectorAll(".kt-tl-item").forEach(function (item) {
+          var ir = item.getBoundingClientRect();
+          item.classList.toggle("kt-tl-lit", ir.top < anchor);
+        });
+      });
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(update);
+      },
+      { passive: true }
+    );
+
+    lines.forEach(function (l) {
+      l.style.setProperty("--kt-tl-progress", "0");
+    });
+    update();
+  }
+
+  /* --------------------------------------------- heading underlines */
+
+  function initHeadings() {
+    var scope = document.querySelector(".post-content, .page-content, article, main") || document.body;
+    var headings = scope.querySelectorAll("h2");
+    if (!headings.length) return;
+
+    headings.forEach(function (h) {
+      if (h.querySelector(".kt-uline") || !h.textContent.trim()) return;
+      var span = document.createElement("span");
+      span.className = "kt-uline kt-reveal";
+      while (h.firstChild) span.appendChild(h.firstChild);
+      h.appendChild(span);
+    });
+  }
+
+  /* --------------------------------------------- smooth anchor jump */
+
+  function initAnchors() {
+    if (reduceMotion) return;
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  }
+
   /* ------------------------------------------------------------- bootstrap */
 
   function init() {
+    // Headings and stagger delays must be set up before the reveal observer
+    // starts watching, since both add or annotate .kt-reveal elements.
+    initHeadings();
+    initStagger();
     initReveal();
     initCounters();
     initRotator();
@@ -352,6 +668,12 @@
     initCardGlow();
     initFilters();
     initBibliography();
+    initConstellation();
+    initEnter();
+    initTilt();
+    initMagnetic();
+    initTimelines();
+    initAnchors();
   }
 
   if (document.readyState === "loading") {
