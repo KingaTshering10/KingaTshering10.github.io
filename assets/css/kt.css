@@ -833,3 +833,135 @@
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   News feed — al-folio renders announcements as a two-column table. kt.js
+   rebuilds that into the structure below; the table still renders on its own
+   if the script never runs.
+   ========================================================================== */
+
+.kt-feed {
+  position: relative;
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0 0 0 1.9rem;
+}
+
+.kt-feed::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 0.42rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--global-theme-color), color-mix(in srgb, var(--global-theme-color) 16%, transparent));
+  transform: scaleY(var(--kt-tl-progress, 1));
+  transform-origin: top center;
+  transition: transform 0.18s linear;
+}
+
+.kt-feed-item {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.kt-feed-marker {
+  position: absolute;
+  top: 1.15rem;
+  left: -1.68rem;
+  width: 0.82rem;
+  height: 0.82rem;
+  border: 2px solid var(--global-theme-color);
+  border-radius: 50%;
+  background: var(--global-bg-color);
+  transition:
+    transform 0.3s var(--kt-ease),
+    background 0.3s var(--kt-ease),
+    box-shadow 0.3s var(--kt-ease);
+}
+
+.kt-feed-item.kt-tl-lit .kt-feed-marker {
+  background: var(--global-theme-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--global-theme-color) 18%, transparent);
+}
+
+.kt-feed-item:hover .kt-feed-marker {
+  transform: scale(1.35);
+}
+
+.kt-feed-card {
+  padding: 0.95rem 1.15rem;
+  border: 1px solid var(--global-divider-color);
+  border-left: 3px solid transparent;
+  border-radius: var(--kt-radius-sm);
+  background: var(--kt-surface);
+  transition:
+    transform 0.28s var(--kt-ease),
+    border-left-color 0.28s var(--kt-ease),
+    box-shadow 0.28s var(--kt-ease);
+}
+
+.kt-feed-item:hover .kt-feed-card {
+  transform: translateX(4px);
+  border-left-color: var(--global-theme-color);
+  box-shadow: var(--kt-shadow-lift);
+}
+
+.kt-feed-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.kt-feed-date {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--global-theme-color);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.kt-feed-rel {
+  font-size: 0.78rem;
+  color: var(--global-text-color-light);
+}
+
+.kt-feed-rel::before {
+  content: "·";
+  margin-right: 0.5rem;
+}
+
+.kt-feed-body {
+  line-height: 1.6;
+}
+
+.kt-feed-body p:last-child {
+  margin-bottom: 0;
+}
+
+.kt-is-milestone {
+  background: #6366f1;
+}
+
+.kt-is-update {
+  background: #64748b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kt-feed::before {
+    transform: none;
+    transition: none;
+  }
+
+  .kt-feed-marker,
+  .kt-feed-card {
+    transition: none;
+  }
+
+  .kt-feed-item:hover .kt-feed-marker,
+  .kt-feed-item:hover .kt-feed-card {
+    transform: none;
+  }
+}

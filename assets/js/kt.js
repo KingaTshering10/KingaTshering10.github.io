@@ -586,7 +586,7 @@
   /* ------------------------------------------ scroll-drawn timeline */
 
   function initTimelines() {
-    var lines = document.querySelectorAll(".kt-timeline");
+    var lines = document.querySelectorAll(".kt-timeline, .kt-feed");
     if (!lines.length || reduceMotion) return;
 
     var ticking = false;
@@ -599,7 +599,7 @@
         var progress = (anchor - r.top) / Math.max(r.height, 1);
         line.style.setProperty("--kt-tl-progress", Math.max(0, Math.min(1, progress)).toFixed(3));
 
-        line.querySelectorAll(".kt-tl-item").forEach(function (item) {
+        line.querySelectorAll(".kt-tl-item, .kt-feed-item").forEach(function (item) {
           var ir = item.getBoundingClientRect();
           item.classList.toggle("kt-tl-lit", ir.top < anchor);
         });
@@ -654,11 +654,110 @@
     });
   }
 
+  /* ----------------------------------------------------------- news feed */
+
+  var NEWS_KINDS = [
+    { test: /\baccepted\b/i, cls: "kt-is-accepted", label: "Accepted" },
+    { test: /\bpublished\b/i, cls: "kt-is-published", label: "Published" },
+    { test: /\b(internship|started|joined|awarded|appointed)\b/i, cls: "kt-is-milestone", label: "Milestone" },
+  ];
+
+  function relativeDay(text) {
+    var when = Date.parse(text);
+    if (isNaN(when)) return "";
+
+    var days = Math.floor((Date.now() - when) / 86400000);
+    if (days < 0 || days > 365) return "";
+    if (days === 0) return "today";
+    if (days === 1) return "yesterday";
+    if (days < 7) return days + " days ago";
+    if (days < 14) return "last week";
+    if (days < 60) return Math.round(days / 7) + " weeks ago";
+    return Math.round(days / 30) + " months ago";
+  }
+
+  /**
+   * al-folio renders announcements as <table><tr><th>date</th><td>body</td>.
+   * Rebuild that into a timeline feed. If this never runs the table stands
+   * on its own, so the page is readable either way.
+   */
+  function initNews() {
+    document.querySelectorAll(".news table").forEach(function (table) {
+      var rows = Array.prototype.slice.call(table.querySelectorAll("tr"));
+      if (!rows.length) return;
+
+      var feed = document.createElement("ol");
+      feed.className = "kt-feed";
+      feed.setAttribute("data-kt-stagger", "90");
+
+      rows.forEach(function (row) {
+        var head = row.querySelector("th");
+        var body = row.querySelector("td");
+        if (!head || !body) return;
+
+        var dateText = head.textContent.trim();
+        var item = document.createElement("li");
+        item.className = "kt-feed-item kt-reveal";
+
+        var marker = document.createElement("div");
+        marker.className = "kt-feed-marker";
+        item.appendChild(marker);
+
+        var card = document.createElement("div");
+        card.className = "kt-feed-card";
+
+        var meta = document.createElement("div");
+        meta.className = "kt-feed-meta";
+
+        var time = document.createElement("time");
+        time.className = "kt-feed-date";
+        time.textContent = dateText;
+        meta.appendChild(time);
+
+        var rel = relativeDay(dateText);
+        if (rel) {
+          var relEl = document.createElement("span");
+          relEl.className = "kt-feed-rel";
+          relEl.textContent = rel;
+          meta.appendChild(relEl);
+        }
+
+        var text = body.textContent || "";
+        for (var i = 0; i < NEWS_KINDS.length; i++) {
+          if (!NEWS_KINDS[i].test.test(text)) continue;
+          var tag = document.createElement("span");
+          tag.className = "kt-status " + NEWS_KINDS[i].cls;
+          tag.textContent = NEWS_KINDS[i].label;
+          meta.appendChild(tag);
+          break;
+        }
+
+        card.appendChild(meta);
+
+        var content = document.createElement("div");
+        content.className = "kt-feed-body";
+        while (body.firstChild) content.appendChild(body.firstChild);
+        card.appendChild(content);
+
+        item.appendChild(card);
+        feed.appendChild(item);
+      });
+
+      if (!feed.children.length) return;
+
+      // Swap the whole responsive wrapper out when there is one.
+      var replaced = table.closest(".table-responsive") || table;
+      replaced.parentNode.replaceChild(feed, replaced);
+    });
+  }
+
   /* ------------------------------------------------------------- bootstrap */
 
   function init() {
-    // Headings and stagger delays must be set up before the reveal observer
-    // starts watching, since both add or annotate .kt-reveal elements.
+    // Headings, the news feed and stagger delays must all be set up before the
+    // reveal observer starts watching, since each adds or annotates .kt-reveal
+    // elements.
+    initNews();
     initHeadings();
     initStagger();
     initReveal();
