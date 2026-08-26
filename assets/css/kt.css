@@ -681,3 +681,155 @@
     transform: none;
   }
 }
+
+/* ==========================================================================
+   Motion layer — hero constellation, tilt, magnetic buttons, staggered
+   entrances, scroll-drawn timelines. Every rule here is decorative; the
+   reduced-motion block at the end disables the lot.
+   ========================================================================== */
+
+/* --------------------------------------------------- hero constellation -- */
+
+.kt-hero > canvas.kt-constellation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.1s var(--kt-ease);
+}
+
+.kt-hero > canvas.kt-constellation.kt-in {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------ hero entrance --- */
+
+.kt-js .kt-enter {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.kt-js .kt-enter.kt-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s var(--kt-ease),
+    transform 0.7s var(--kt-ease);
+}
+
+/* ------------------------------------------------------------- tilt ----- */
+
+.kt-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.kt-tilt-inner {
+  transform: translateZ(22px);
+}
+
+/* --------------------------------------------------- magnetic buttons --- */
+
+.kt-btn {
+  will-change: transform;
+}
+
+/* Shine sweep across a stat tile on hover. */
+.kt-stat {
+  position: relative;
+  overflow: hidden;
+}
+
+.kt-stat::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--global-theme-color) 16%, transparent), transparent);
+  transition: left 0.75s var(--kt-ease);
+  pointer-events: none;
+}
+
+.kt-stat:hover::after {
+  left: 140%;
+}
+
+/* ------------------------------------------------ scroll-drawn timeline -- */
+
+.kt-timeline::before {
+  transform: scaleY(var(--kt-tl-progress, 1));
+  transform-origin: top center;
+  transition: transform 0.18s linear;
+}
+
+.kt-tl-item::before {
+  background: var(--global-bg-color);
+}
+
+.kt-tl-item.kt-tl-lit::before {
+  background: var(--global-theme-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--global-theme-color) 18%, transparent);
+}
+
+/* --------------------------------------------------- heading underline -- */
+
+.kt-uline {
+  position: relative;
+  display: inline-block;
+}
+
+.kt-uline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18em;
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--global-theme-color), color-mix(in srgb, var(--global-theme-color) 25%, transparent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.75s var(--kt-ease);
+}
+
+.kt-uline.kt-in::after {
+  transform: scaleX(1);
+}
+
+/* ------------------------------------------------------ reduced motion -- */
+
+@media (prefers-reduced-motion: reduce) {
+  .kt-js .kt-enter,
+  .kt-js .kt-enter.kt-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .kt-hero > canvas.kt-constellation {
+    display: none;
+  }
+
+  .kt-timeline::before {
+    transform: none;
+    transition: none;
+  }
+
+  .kt-uline::after {
+    transform: scaleX(1);
+    transition: none;
+  }
+
+  .kt-stat::after {
+    display: none;
+  }
+
+  .kt-tilt {
+    transform: none !important;
+  }
+}
