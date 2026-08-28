@@ -10,10 +10,8 @@ description: Teaching, leadership, and community service.
 <link rel="stylesheet" href="{{ '/assets/css/kt.css' | relative_url }}" />
 <script>document.documentElement.classList.add("kt-js");</script>
 
-<div data-kt-progress></div>
-
-<div class="kt-hero kt-reveal" markdown="0">
-  <span class="kt-eyebrow">Experience</span>
+<div class="kt-hero kt-enter" markdown="0" data-kt-constellation>
+  <span class="kt-eyebrow kt-enter">Experience</span>
   <p>
     Teaching two undergraduate CSE courses, coordinating for the Bhutanese student community at North
     South University, and four years of youth-focused volunteer work in Bhutan.
@@ -22,9 +20,9 @@ description: Teaching, leadership, and community service.
 
 ## Teaching
 
-<div class="kt-timeline">
+<div class="kt-timeline" data-kt-stagger="110">
 
-<div class="kt-tl-item kt-card kt-reveal" markdown="1">
+<div class="kt-tl-item kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-tl-head">
   <span class="kt-tl-title">Undergraduate Teaching Assistant</span>
@@ -62,9 +60,9 @@ Prof. Nabil Bin Hannan
 
 ## Leadership and service
 
-<div class="kt-timeline">
+<div class="kt-timeline" data-kt-stagger="110">
 
-<div class="kt-tl-item kt-card kt-reveal" markdown="1">
+<div class="kt-tl-item kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-tl-head">
   <span class="kt-tl-title">Coordinator</span>
@@ -84,7 +82,7 @@ helping new and continuing students settle into university life abroad.
 
 </div>
 
-<div class="kt-tl-item kt-card kt-reveal" data-kt-delay="80" markdown="1">
+<div class="kt-tl-item kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-tl-head">
   <span class="kt-tl-title">Volunteer President</span>

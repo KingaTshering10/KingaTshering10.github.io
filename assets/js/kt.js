@@ -140,38 +140,6 @@
     });
   }
 
-  /* ----------------------------------------------------- reading progress */
-
-  function initProgress() {
-    if (!document.querySelector("[data-kt-progress]")) return;
-
-    var bar = document.createElement("div");
-    bar.className = "kt-progress";
-    document.body.appendChild(bar);
-
-    var ticking = false;
-
-    function update() {
-      var doc = document.documentElement;
-      var max = doc.scrollHeight - window.innerHeight;
-      var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-      bar.style.width = Math.min(Math.max(pct, 0), 100) + "%";
-      ticking = false;
-    }
-
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(update);
-      },
-      { passive: true }
-    );
-
-    update();
-  }
-
   /* --------------------------------------------------- card pointer glow */
 
   function initCardGlow() {
@@ -313,7 +281,20 @@
     function apply(value) {
       entries.forEach(function (li) {
         var match = value === "all" || li.getAttribute("data-kt-status") === value;
-        li.classList.toggle("kt-hidden", !match);
+        if (reduceMotion) {
+          li.classList.toggle("kt-hidden", !match);
+          return;
+        }
+        // Fade out first, then remove from flow, so filtering reads as a
+        // transition instead of a jump.
+        li.classList.toggle("kt-filtering", !match);
+        if (match) {
+          li.classList.remove("kt-hidden");
+        } else {
+          window.setTimeout(function () {
+            if (li.classList.contains("kt-filtering")) li.classList.add("kt-hidden");
+          }, 260);
+        }
       });
 
       // Hide year headings whose list has no visible entries left.
@@ -751,6 +732,79 @@
     });
   }
 
+  /* --------------------------------------------------------- section rail */
+
+  /**
+   * A dot per <h2> down the right edge: click to jump, the dot for the section
+   * you are in fills. Only worth showing when a page has enough sections to
+   * navigate, and it is hidden under 1200px by CSS.
+   */
+  function initRail() {
+    var scope = document.querySelector(".post-content, .page-content, article, main") || document.body;
+    var headings = Array.prototype.slice.call(scope.querySelectorAll("h2")).filter(function (h) {
+      return h.textContent.trim().length > 0;
+    });
+    if (headings.length < 2) return;
+
+    var rail = document.createElement("ul");
+    rail.className = "kt-rail";
+    rail.setAttribute("aria-label", "Sections");
+
+    var dots = headings.map(function (h, i) {
+      if (!h.id) h.id = "kt-section-" + i;
+
+      var li = document.createElement("li");
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "kt-rail-dot";
+      dot.setAttribute("data-label", h.textContent.trim());
+      dot.setAttribute("aria-label", "Jump to " + h.textContent.trim());
+      dot.setAttribute("aria-current", "false");
+
+      dot.addEventListener("click", function () {
+        h.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      });
+
+      li.appendChild(dot);
+      rail.appendChild(li);
+      return dot;
+    });
+
+    document.body.appendChild(rail);
+
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var anchor = window.innerHeight * 0.3;
+      var active = 0;
+      headings.forEach(function (h, i) {
+        if (h.getBoundingClientRect().top <= anchor) active = i;
+      });
+
+      // The final section often cannot scroll high enough to cross the anchor,
+      // so its dot would never light. At the bottom of the page it is the one
+      // you are looking at, by definition.
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) active = headings.length - 1;
+      dots.forEach(function (d, i) {
+        d.setAttribute("aria-current", String(i === active));
+      });
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(update);
+      },
+      { passive: true }
+    );
+
+    update();
+  }
+
   /* ------------------------------------------------------------- bootstrap */
 
   function init() {
@@ -763,7 +817,6 @@
     initReveal();
     initCounters();
     initRotator();
-    initProgress();
     initCardGlow();
     initFilters();
     initBibliography();
@@ -773,6 +826,7 @@
     initMagnetic();
     initTimelines();
     initAnchors();
+    initRail();
   }
 
   if (document.readyState === "loading") {

@@ -29,20 +29,6 @@
   transform: none;
 }
 
-/* ------------------------------------------------------ reading progress -- */
-
-.kt-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  width: 0;
-  z-index: 1200;
-  background: linear-gradient(90deg, var(--global-theme-color), color-mix(in srgb, var(--global-theme-color) 45%, #ffffff));
-  transition: width 0.1s linear;
-  pointer-events: none;
-}
-
 /* ----------------------------------------------------------------- hero -- */
 
 .kt-hero {
@@ -962,6 +948,129 @@
 
   .kt-feed-item:hover .kt-feed-marker,
   .kt-feed-item:hover .kt-feed-card {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Publication entries — jekyll-scholar emits plain <li>; these lift them into
+   cards and make filtering a transition rather than a jump.
+   ========================================================================== */
+
+.publications ol.bibliography > li {
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid transparent;
+  border-left: 3px solid transparent;
+  border-radius: var(--kt-radius-sm);
+  transition:
+    transform 0.28s var(--kt-ease),
+    border-color 0.28s var(--kt-ease),
+    background 0.28s var(--kt-ease),
+    box-shadow 0.28s var(--kt-ease),
+    opacity 0.3s var(--kt-ease);
+}
+
+.publications ol.bibliography > li:hover {
+  transform: translateX(5px);
+  border-color: var(--global-divider-color);
+  border-left-color: var(--global-theme-color);
+  background: var(--kt-surface);
+  box-shadow: var(--kt-shadow-lift);
+}
+
+/* Filtering fades entries out rather than snapping them away. */
+.publications ol.bibliography > li.kt-filtering {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+/* ------------------------------------------------------------ section rail */
+
+.kt-rail {
+  position: fixed;
+  top: 50%;
+  right: 1.4rem;
+  transform: translateY(-50%);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.kt-rail-dot {
+  position: relative;
+  width: 0.62rem;
+  height: 0.62rem;
+  padding: 0;
+  border: 2px solid color-mix(in srgb, var(--global-text-color) 32%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    transform 0.28s var(--kt-ease),
+    border-color 0.28s var(--kt-ease),
+    background 0.28s var(--kt-ease);
+}
+
+.kt-rail-dot:hover,
+.kt-rail-dot:focus-visible {
+  border-color: var(--global-theme-color);
+  transform: scale(1.3);
+}
+
+.kt-rail-dot[aria-current="true"] {
+  border-color: var(--global-theme-color);
+  background: var(--global-theme-color);
+  transform: scale(1.25);
+}
+
+/* Label appears on hover, to the left of the dot. */
+.kt-rail-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.4rem;
+  background: var(--global-theme-color);
+  color: var(--global-bg-color);
+  font-size: 0.74rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.24s var(--kt-ease),
+    transform 0.24s var(--kt-ease);
+}
+
+.kt-rail-dot:hover::after,
+.kt-rail-dot:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* The rail would collide with content on narrow screens. */
+@media (max-width: 1200px) {
+  .kt-rail {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .publications ol.bibliography > li,
+  .kt-rail-dot,
+  .kt-rail-dot::after {
+    transition: none;
+  }
+
+  .publications ol.bibliography > li:hover,
+  .kt-rail-dot:hover {
     transform: none;
   }
 }
