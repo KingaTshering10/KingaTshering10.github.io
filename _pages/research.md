@@ -10,10 +10,8 @@ description: Research positions, ongoing work, and the software I have built.
 <link rel="stylesheet" href="{{ '/assets/css/kt.css' | relative_url }}" />
 <script>document.documentElement.classList.add("kt-js");</script>
 
-<div data-kt-progress></div>
-
-<div class="kt-hero kt-reveal" markdown="0">
-  <span class="kt-eyebrow">Research</span>
+<div class="kt-hero kt-enter" markdown="0" data-kt-constellation>
+  <span class="kt-eyebrow kt-enter">Research</span>
   <p>
     My work sits at the intersection of <strong>language model evaluation</strong>,
     <strong>efficient deep learning</strong>, and <strong>interpretability</strong> — three angles on the
@@ -23,9 +21,9 @@ description: Research positions, ongoing work, and the software I have built.
 
 ## Research positions
 
-<div class="kt-timeline">
+<div class="kt-timeline" data-kt-stagger="110">
 
-<div class="kt-tl-item kt-card kt-reveal" markdown="1">
+<div class="kt-tl-item kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-tl-head">
   <span class="kt-tl-title">Research Intern</span>
@@ -57,7 +55,7 @@ _scale_ to extrapolation across _context length_.
 
 </div>
 
-<div class="kt-tl-item kt-card kt-reveal" data-kt-delay="80" markdown="1">
+<div class="kt-tl-item kt-card kt-tilt kt-reveal" markdown="1">
 
 <div class="kt-tl-head">
   <span class="kt-tl-title">Undergraduate Researcher</span>
@@ -102,9 +100,9 @@ Three lines of work across pruning, evaluation, and benchmark construction.
   <button type="button" class="kt-chip" data-kt-value="ml" aria-pressed="false">Machine learning</button>
 </div>
 
-<div class="kt-grid">
+<div class="kt-grid" data-kt-stagger="90">
 
-<div class="kt-card kt-reveal" data-kt-group="software" data-kt-tags="web ml" markdown="1">
+<div class="kt-card kt-tilt kt-reveal" data-kt-group="software" data-kt-tags="web ml" markdown="1">
 
 <div class="kt-card-title">DrukAgriLink</div>
 <div class="kt-card-meta">2025 · Agricultural coordination platform for Bhutanese smallholder farmers</div>
@@ -128,7 +126,7 @@ from harvest listing through demand matching to fulfillment, with role-based acc
 
 </div>
 
-<div class="kt-card kt-reveal" data-kt-delay="80" data-kt-group="software" data-kt-tags="ml" markdown="1">
+<div class="kt-card kt-tilt kt-reveal" data-kt-group="software" data-kt-tags="ml" markdown="1">
 
 <div class="kt-card-title">IntelliExpense</div>
 <div class="kt-card-meta">2024 · Machine learning system for personal expenditure analysis · Course project</div>
@@ -151,7 +149,7 @@ histories.
 
 ## Technical skills
 
-<div class="kt-skills">
+<div class="kt-skills" data-kt-stagger="80">
 
 <div class="kt-skill-row kt-reveal">
   <span class="kt-skill-name">Languages</span>

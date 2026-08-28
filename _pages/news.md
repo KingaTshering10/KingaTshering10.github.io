@@ -12,8 +12,6 @@ description: Paper acceptances, research positions, and other updates.
   document.documentElement.classList.add("kt-js");
 </script>
 
-<div data-kt-progress></div>
-
 <div class="kt-hero kt-enter" markdown="0" data-kt-constellation>
   <span class="kt-eyebrow">Updates</span>
   <p>
