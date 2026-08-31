@@ -478,7 +478,7 @@
     // al-folio swaps the palette on theme change; re-read it when that happens.
     new MutationObserver(function () {
       rgb = themeRGB();
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
     resize();
     window.setTimeout(function () {
@@ -852,27 +852,6 @@
     });
   }
 
-  /* ------------------------------------------------------ theme change */
-
-  /**
-   * al-folio swaps the palette instantly. Enable colour transitions on the
-   * affected surfaces for the duration of the swap, then take them off again
-   * so ordinary hover states stay snappy.
-   */
-  function initThemeTransition() {
-    if (reduceMotion) return;
-
-    var timer = null;
-
-    new MutationObserver(function () {
-      document.documentElement.classList.add("kt-theming");
-      window.clearTimeout(timer);
-      timer = window.setTimeout(function () {
-        document.documentElement.classList.remove("kt-theming");
-      }, 450);
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
-  }
-
   /* ------------------------------------------------------------- bootstrap */
 
   function init() {
@@ -896,7 +875,6 @@
     initAnchors();
     initRail();
     initPageTransition();
-    initThemeTransition();
   }
 
   if (document.readyState === "loading") {
