@@ -805,6 +805,74 @@
     update();
   }
 
+  /* --------------------------------------------------- page transition */
+
+  /**
+   * Fade out on same-origin navigation. The class is always cleared — by a
+   * timeout, by pageshow (bfcache back/forward), and by pagehide — so a
+   * cancelled or blocked navigation can never strand the page invisible.
+   */
+  function initPageTransition() {
+    if (reduceMotion) return;
+
+    var timer = null;
+
+    function clear() {
+      window.clearTimeout(timer);
+      document.body.classList.remove("kt-leaving");
+    }
+
+    window.addEventListener("pageshow", clear);
+    window.addEventListener("popstate", clear);
+
+    document.addEventListener("click", function (event) {
+      if (event.defaultPrevented) return;
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      var link = event.target.closest ? event.target.closest("a[href]") : null;
+      if (!link) return;
+      if (link.target && link.target !== "_self") return;
+      if (link.hasAttribute("download")) return;
+
+      var href = link.getAttribute("href") || "";
+      if (href.charAt(0) === "#" || /^(mailto|tel|javascript):/i.test(href)) return;
+
+      var url;
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (e) {
+        return;
+      }
+      if (url.origin !== window.location.origin) return;
+      // Same page, different anchor — the browser will not navigate away.
+      if (url.pathname === window.location.pathname && url.hash) return;
+
+      document.body.classList.add("kt-leaving");
+      timer = window.setTimeout(clear, 1200);
+    });
+  }
+
+  /* ------------------------------------------------------ theme change */
+
+  /**
+   * al-folio swaps the palette instantly. Enable colour transitions on the
+   * affected surfaces for the duration of the swap, then take them off again
+   * so ordinary hover states stay snappy.
+   */
+  function initThemeTransition() {
+    if (reduceMotion) return;
+
+    var timer = null;
+
+    new MutationObserver(function () {
+      document.documentElement.classList.add("kt-theming");
+      window.clearTimeout(timer);
+      timer = window.setTimeout(function () {
+        document.documentElement.classList.remove("kt-theming");
+      }, 450);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
+  }
+
   /* ------------------------------------------------------------- bootstrap */
 
   function init() {
@@ -827,6 +895,8 @@
     initTimelines();
     initAnchors();
     initRail();
+    initPageTransition();
+    initThemeTransition();
   }
 
   if (document.readyState === "loading") {

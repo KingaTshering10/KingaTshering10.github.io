@@ -1074,3 +1074,114 @@
     transform: none;
   }
 }
+
+/* ==========================================================================
+   Site-wide transitions — navigation, theme change, nav links.
+   ========================================================================== */
+
+/* ------------------------------------------------------ page transition -- */
+
+.kt-js body {
+  animation: kt-page-in 0.42s var(--kt-ease);
+}
+
+@keyframes kt-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Applied only while a same-origin navigation is in flight; JS always clears
+   it, so a cancelled navigation cannot leave the page blank. */
+.kt-js body.kt-leaving {
+  opacity: 0;
+  transition: opacity 0.2s var(--kt-ease);
+}
+
+/* --------------------------------------------------- theme change fade --- */
+
+/* Scoped to the surfaces that actually change colour — transitioning every
+   element would jank on a long page. */
+.kt-theming body,
+.kt-theming .kt-hero,
+.kt-theming .kt-card,
+.kt-theming .kt-stat,
+.kt-theming .kt-badge,
+.kt-theming .kt-chip,
+.kt-theming .kt-feed-card,
+.kt-theming .kt-pub,
+.kt-theming .publications ol.bibliography > li {
+  transition:
+    background-color 0.35s var(--kt-ease),
+    border-color 0.35s var(--kt-ease),
+    color 0.35s var(--kt-ease);
+}
+
+/* ------------------------------------------------------- nav underline --- */
+
+.kt-js nav .nav-link {
+  position: relative;
+}
+
+.kt-js nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--global-theme-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s var(--kt-ease);
+}
+
+.kt-js nav .nav-link:hover::after,
+.kt-js nav .nav-item.active .nav-link::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* -------------------------------------------------------------- 404 ----- */
+
+.kt-404-code {
+  font-size: clamp(4rem, 16vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(120deg, var(--global-theme-color), color-mix(in srgb, var(--global-theme-color) 35%, transparent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kt-js body,
+  .kt-js body.kt-leaving {
+    animation: none;
+    opacity: 1;
+    transition: none;
+  }
+
+  .kt-theming body,
+  .kt-theming .kt-hero,
+  .kt-theming .kt-card,
+  .kt-theming .kt-stat,
+  .kt-theming .kt-badge,
+  .kt-theming .kt-chip,
+  .kt-theming .kt-feed-card,
+  .kt-theming .kt-pub,
+  .kt-theming .publications ol.bibliography > li {
+    transition: none;
+  }
+
+  .kt-js nav .nav-link::after {
+    transition: none;
+  }
+}
