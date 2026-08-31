@@ -40,8 +40,8 @@ latest_posts:
   <p class="kt-enter">
     <!--Currently a research intern at the <strong>University of Arizona</strong>, College of Information Science,
     advised by <strong>Prof. Haw-Shiuan Chang</strong>. -->
-    I graduated <em>summa cum laude</em> in Computer Science
-    and Engineering from <strong>North South University</strong> as a recipient of <strong>His Majesty's Scholarship</strong>.
+    I hold a B.Sc. in Computer Science and Engineering from <strong>North South University</strong>,
+    where I studied as a recipient of <strong>His Majesty's Scholarship</strong>.
   </p>
   <div class="kt-actions kt-enter">
     <a class="kt-btn kt-btn--solid" href="{{ '/publications/' | relative_url }}">Publications</a>
@@ -52,10 +52,6 @@ latest_posts:
 </div>
 
 <div class="kt-stats" data-kt-stagger="80">
-  <div class="kt-stat kt-tilt kt-reveal">
-    <span class="kt-stat-value">3.90</span>
-    <span class="kt-stat-label">CGPA / 4.00 · Summa Cum Laude</span>
-  </div>
   <div class="kt-stat kt-tilt kt-reveal">
     <span class="kt-stat-value" data-kt-count="6">6</span>
     <span class="kt-stat-label">Papers and preprints</span>
