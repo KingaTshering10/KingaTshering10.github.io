@@ -1095,25 +1095,6 @@
   transition: opacity 0.2s var(--kt-ease);
 }
 
-/* --------------------------------------------------- theme change fade --- */
-
-/* Scoped to the surfaces that actually change colour — transitioning every
-   element would jank on a long page. */
-.kt-theming body,
-.kt-theming .kt-hero,
-.kt-theming .kt-card,
-.kt-theming .kt-stat,
-.kt-theming .kt-badge,
-.kt-theming .kt-chip,
-.kt-theming .kt-feed-card,
-.kt-theming .kt-pub,
-.kt-theming .publications ol.bibliography > li {
-  transition:
-    background-color 0.35s var(--kt-ease),
-    border-color 0.35s var(--kt-ease),
-    color 0.35s var(--kt-ease);
-}
-
 /* ------------------------------------------------------- nav underline --- */
 
 .kt-js nav .nav-link {
@@ -1158,18 +1139,6 @@
   .kt-js body.kt-leaving {
     animation: none;
     opacity: 1;
-    transition: none;
-  }
-
-  .kt-theming body,
-  .kt-theming .kt-hero,
-  .kt-theming .kt-card,
-  .kt-theming .kt-stat,
-  .kt-theming .kt-badge,
-  .kt-theming .kt-chip,
-  .kt-theming .kt-feed-card,
-  .kt-theming .kt-pub,
-  .kt-theming .publications ol.bibliography > li {
     transition: none;
   }
 
