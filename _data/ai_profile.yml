@@ -1,0 +1,133 @@
+# -----------------------------------------------------------------------------
+# AI Assistant knowledge base
+# -----------------------------------------------------------------------------
+# This single file powers the floating "Ask AI" chat widget on every page.
+# UPDATE THIS FILE AS YOUR LIFE CHANGES — edit the text below, commit, and push.
+# No code changes are needed; the widget rebuilds itself from this data.
+#
+#   * `identity`      : first-person blurb used to ground answers.
+#   * `quick_questions`: the suggested-question chips shown in the chat panel.
+#   * `sections`      : the knowledge the offline assistant searches. Each has
+#                       `keywords` (what a visitor might type) and an `answer`.
+#   * `contact` / `links`: how people can reach you.
+#
+# The optional "power mode" (bring-your-own Anthropic API key) uses `identity`
+# plus every section's answer as grounding context for the language model.
+# -----------------------------------------------------------------------------
+
+name: Kinga Tshering
+short_name: Kinga
+tagline: BSc Computer Science & Engineering Graduate · Machine Learning & Applied AI Researcher
+avatar_initials: KT
+
+# First-person description. Used verbatim as context and to answer "who are you".
+identity: >
+  I am an AI assistant for Kinga Tshering. Kinga is a BSc Computer Science and
+  Engineering graduate of North South University (NSU) in Dhaka, Bangladesh, who
+  graduated with a CGPA of 3.91/4.00 and was a recipient of His Majesty's
+  Scholarship. Kinga builds and evaluates machine learning systems for vision,
+  language, medical imaging, and trustworthy applied AI. I answer questions about
+  Kinga's background, research, education, experience, projects, and how to get in
+  touch. I stay factual and only speak to what is provided in this profile.
+
+# Suggested-question chips shown when the chat opens.
+quick_questions:
+  - What is Kinga's research about?
+  - Tell me about Kinga's education
+  - What has Kinga published?
+  - What projects has Kinga built?
+  - How can I contact Kinga?
+
+sections:
+  - id: overview
+    title: About Kinga
+    keywords: [who, overview, summary, bio, introduce, yourself, background, "about kinga", "who is", "tell me about kinga"]
+    answer: >
+      Kinga Tshering is a BSc Computer Science and Engineering graduate of North
+      South University (NSU), Dhaka, Bangladesh, graduating with a CGPA of
+      3.91/4.00 (Summa Cum Laude) and as a recipient of His Majesty's Scholarship.
+      Kinga builds and evaluates machine learning systems for vision, language,
+      medical imaging, and trustworthy applied artificial intelligence, and is
+      open to research collaborations, graduate study opportunities, and applied
+      AI projects.
+
+  - id: research
+    title: Research interests
+    keywords: [research, interests, "research area", "research focus", "work on", "machine learning", "deep learning", vision, nlp, "medical imaging", explainable, xai, hyperspectral, "vision-language", "vision language", llm, reasoning]
+    answer: >
+      Kinga's research spans machine learning, deep learning, computer vision,
+      vision-language models, natural language processing, medical imaging,
+      hyperspectral image classification, explainable AI, and applied AI systems.
+      Specific directions include vision-language model evaluation, sparse
+      subnetworks for hyperspectral image classification, few-shot open-set
+      recognition in medical imaging, LLM-based computational reasoning, and
+      explainable machine learning for pediatric screen-time overuse prediction.
+      Kinga cares about AI systems that are accurate, robust, interpretable, and
+      useful in real-world settings.
+
+  - id: education
+    title: Education
+    keywords: [education, study, studied, university, degree, cgpa, gpa, graduate, graduated, school, nsu, north south, scholarship, academic]
+    answer: >
+      Kinga earned a BSc in Computer Science and Engineering from North South
+      University (NSU) in Dhaka, Bangladesh, graduating with a CGPA of 3.91/4.00
+      and an academic standing of Summa Cum Laude. Kinga was a recipient of His
+      Majesty's Scholarship.
+
+  - id: publications
+    title: Publications & research activity
+    keywords: [publication, publications, paper, papers, published, venue, journal, conference, icml, tmlr, emnlp, research activity, accepted]
+    answer: >
+      Kinga has contributed to accepted, published, and under-review research
+      associated with venues and journals including ICML 2026, TMLR, System and
+      Soft Computing, EMNLP, and the Zorig Melong Journal. You can see the full,
+      current list on the Publications page of this site.
+
+  - id: experience
+    title: Teaching & experience
+    keywords: [experience, teaching, teach, "teaching assistant", assistant, job, role, employment, instructor, tutor, "programming language", "computer architecture"]
+    answer: >
+      Kinga has served as a Teaching Assistant at North South University for CSE
+      courses including Programming Language II (Java) and Computer Architecture
+      and Organization, alongside research and applied AI work.
+
+  - id: projects
+    title: Projects
+    keywords: [project, projects, built, build, application, app, software, portfolio, intelliexpense, findmyspot, budgeting, parking]
+    answer: >
+      Kinga has built applied software projects such as IntelliExpense, a
+      machine-learning-based financial budgeting web application, and FindMySpot,
+      a parking reservation system, in addition to research code across vision,
+      language, and medical-imaging work.
+
+  - id: collaboration
+    title: Collaboration & opportunities
+    keywords: [collaborate, collaboration, opportunity, opportunities, hire, hiring, available, graduate study, phd, masters, open to, work together]
+    answer: >
+      Kinga is actively interested in research collaborations, graduate study
+      opportunities, and projects at the intersection of machine learning,
+      reasoning, computer vision, and applied artificial intelligence. The best
+      way to start a conversation is by email.
+
+  - id: contact
+    title: Contact
+    keywords: [contact, email, reach, "get in touch", connect, linkedin, scholar, whatsapp]
+    answer: >
+      The best way to reach Kinga is by email at kinga.tshering@northsouth.edu
+      (or kinstsring10@gmail.com). Kinga is also on LinkedIn, Google Scholar, and
+      WhatsApp — see the links in the assistant footer or the profile links on
+      this site.
+
+contact:
+  location: Dhaka, Bangladesh
+  emails:
+    - kinga.tshering@northsouth.edu
+    - kinstsring10@gmail.com
+
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/kinga-tshering-036a99138
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=b6lJ-mQAAAAJ
+  - label: Email
+    url: mailto:kinga.tshering@northsouth.edu
