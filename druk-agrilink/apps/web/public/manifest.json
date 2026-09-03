@@ -1,0 +1,10 @@
+{
+  "name": "DrukAgriLink",
+  "short_name": "DrukAgriLink",
+  "description": "Agricultural aggregation, market coordination, and shared transport for Bhutan.",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#faf6f0",
+  "theme_color": "#4a7230",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
