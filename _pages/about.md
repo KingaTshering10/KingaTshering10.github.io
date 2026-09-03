@@ -87,10 +87,8 @@ contribution.
 
 <div class="kt-card-title">Language model evaluation</div>
 
-Separating **instruction-following compliance** from **answer correctness** in post-training evaluation
-of small language models — a single accuracy number conflates a model that reasons incorrectly with one
-that reasoned fine and ignored the output format. Also benchmark construction for formal-language tasks
-spanning the Chomsky hierarchy, and geo-temporal grounding in vision–language models.
+Separating **instruction-following compliance** from **answer correctness** in small language models.
+One accuracy score can't tell you whether a model reasoned badly or just ignored the output format.
 
 <div class="kt-badges">
   <span class="kt-badge kt-badge--accent">ICML 2026</span>
@@ -104,10 +102,8 @@ spanning the Chomsky hierarchy, and geo-temporal grounding in vision–language 
 
 <div class="kt-card-title">Efficient deep learning</div>
 
-Sparse subnetworks under the **Lottery Ticket Hypothesis**, applied to hyperspectral image
-classification. Iterative magnitude pruning across 3D CNN, hybrid 3D–2D CNN, and Mamba backbones on
-three benchmark scenes — asking not just how far a network compresses, but which spectral bands
-survive and what that says about what the model learned.
+Sparse subnetworks under the **Lottery Ticket Hypothesis**, applied to hyperspectral imaging.
+Not just how far a network compresses, but which spectral bands survive the pruning.
 
 <div class="kt-badges">
   <span class="kt-badge">Pruning</span>
@@ -122,9 +118,7 @@ survive and what that says about what the model learned.
 <div class="kt-card-title">Decoding and inference</div>
 
 Extending **Asymptotic Probability Decoding** from extrapolation across model _scale_ to extrapolation
-across _context length_, removing the method's dependence on a family of same-recipe language models at
-multiple sizes — and auditing the curve-fitting objective, top-_k_ candidate selection, and numerical
-conditioning that make the parametric fit unstable.
+across _context length_, so the method no longer needs a whole family of models at different sizes.
 
 <div class="kt-badges">
   <span class="kt-badge kt-badge--accent">University of Arizona</span>
@@ -137,9 +131,8 @@ conditioning that make the parametric fit unstable.
 
 <div class="kt-card-title">Applied and medical imaging</div>
 
-**Few-shot open-set recognition** for skin lesion classification, where the realistic failure mode is
-not misclassifying a known class but confidently labelling a condition the model has never seen. Plus
-explainable ML for pediatric screen-time overuse prediction.
+**Few-shot open-set recognition** for skin lesion classification. The dangerous failure isn't a wrong
+label — it's a confident one for a condition the model has never seen.
 
 <div class="kt-badges">
   <span class="kt-badge">Medical imaging</span>
