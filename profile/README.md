@@ -104,7 +104,7 @@ analysis over user transaction histories.
 
 **Languages** Python · C · C++ · Java · TypeScript · SQL
 **ML** PyTorch · Hugging Face Transformers · NumPy · Pandas · scikit-learn · Matplotlib
-**Research infrastructure** SLURM / HPC clusters · Git · LaTeX · Weights & Biases
+**Research infrastructure** Git · LaTeX · Weights & Biases
 **Web** Next.js · Django · Supabase / PostgreSQL
 
 ### Honors
