@@ -69,7 +69,7 @@ cv:
       - label: ML Stack
         details: PyTorch, Hugging Face Transformers, NumPy, Pandas, scikit-learn, Matplotlib
       - label: Research Infrastructure
-        details: Git, LaTeX, Weights & Biases
+        details: Git, LaTeX
       - label: Web
         details: Next.js, Django, Supabase / PostgreSQL
 
