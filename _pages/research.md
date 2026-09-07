@@ -168,7 +168,7 @@ histories.
 <div class="kt-skill-row kt-reveal">
   <span class="kt-skill-name">Research infra</span>
   <div class="kt-badges" style="margin: 0">
-    <span class="kt-badge">Git</span><span class="kt-badge">LaTeX</span><span class="kt-badge">Weights &amp; Biases</span>
+    <span class="kt-badge">Git</span><span class="kt-badge">LaTeX</span>
   </div>
 </div>
 
