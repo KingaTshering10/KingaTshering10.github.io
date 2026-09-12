@@ -1,0 +1,24 @@
+# Dependabot for the DrukAgriLink sub-project. The al-folio site manages its
+# own gem/npm pins via the upstream starter and is intentionally not included.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /druk-agrilink/apps/api
+    schedule:
+      interval: weekly
+    labels: [dependencies, drukagrilink]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: npm
+    directory: /druk-agrilink/apps/web
+    schedule:
+      interval: weekly
+    labels: [dependencies, drukagrilink]
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    labels: [dependencies]
+    open-pull-requests-limit: 3

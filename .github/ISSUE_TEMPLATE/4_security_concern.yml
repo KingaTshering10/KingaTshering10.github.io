@@ -1,0 +1,42 @@
+name: "🔒 Security concern"
+description: Report a potential security issue (avoid posting exploit details publicly)
+title: "[SECURITY] <short summary>"
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please do not include working exploits, credentials, or personal data in this issue.**
+        For sensitive vulnerabilities, describe the area of concern here and note that
+        details should be shared privately with the maintainer.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - DrukAgriLink API (druk-agrilink/apps/api)
+        - DrukAgriLink Web (druk-agrilink/apps/web)
+        - DrukAgriLink infrastructure / CI
+        - Website (al-folio)
+        - Other / unsure
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What is the concern, and what is the potential impact?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How can it be observed?
+      description: High-level reproduction steps (omit sensitive payloads).
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have not included secrets, credentials, or personal data in this report.
+          required: true

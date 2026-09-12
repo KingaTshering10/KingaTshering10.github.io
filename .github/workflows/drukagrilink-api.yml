@@ -1,0 +1,79 @@
+name: DrukAgriLink API
+
+on:
+  push:
+    branches: [main, master]
+    paths: ["druk-agrilink/apps/api/**", ".github/workflows/drukagrilink-api.yml"]
+  pull_request:
+    paths: ["druk-agrilink/apps/api/**", ".github/workflows/drukagrilink-api.yml"]
+
+defaults:
+  run:
+    working-directory: druk-agrilink/apps/api
+
+jobs:
+  quality:
+    name: Format, lint, types, tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Ruff format check
+        run: ruff format --check app tests alembic/env.py
+      - name: Ruff lint
+        run: ruff check app tests alembic/env.py
+      - name: Mypy type check
+        run: mypy app
+      - name: Pytest
+        run: pytest -q
+        env:
+          DRUK_ENVIRONMENT: test
+          DRUK_JWT_SECRET: ci-only-secret
+
+  migrations:
+    name: Migration validation (PostgreSQL + PostGIS)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_USER: druk
+          POSTGRES_PASSWORD: druk_ci_only
+          POSTGRES_DB: drukagrilink
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U druk -d drukagrilink"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Upgrade to head
+        run: alembic upgrade head
+        env:
+          DRUK_DATABASE_URL: postgresql+psycopg://druk:druk_ci_only@localhost:5432/drukagrilink
+      - name: Downgrade to base and re-upgrade
+        run: |
+          alembic downgrade base
+          alembic upgrade head
+        env:
+          DRUK_DATABASE_URL: postgresql+psycopg://druk:druk_ci_only@localhost:5432/drukagrilink
+      - name: Seed demo data against PostgreSQL
+        run: |
+          pip install -e ".[dev]"
+          python -m app.seed
+        env:
+          DRUK_DATABASE_URL: postgresql+psycopg://druk:druk_ci_only@localhost:5432/drukagrilink
+          DRUK_ENVIRONMENT: development
+          DRUK_JWT_SECRET: ci-only-secret
