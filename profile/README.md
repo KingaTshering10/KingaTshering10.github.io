@@ -72,7 +72,7 @@ Own name in **bold**. \* denotes equal contribution.
    **K. Tshering**, O. Nadeem, S. M. S. Islam, T. Elahi, R. Khan
    _Systems and Soft Computing_ — Under review
 
-6. **Beyond Strict Accuracy: A Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models**
+6. **Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models**
    **K. Tshering**, S. Das — In preparation
 
 ### Education
