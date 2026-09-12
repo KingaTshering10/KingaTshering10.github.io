@@ -121,7 +121,7 @@ Own name in **bold**. \* denotes equal contribution.
 
 <div class="kt-pub kt-tilt kt-reveal" markdown="1">
 <span class="kt-pub-venue">In preparation</span>
-<div class="kt-pub-title">Beyond Strict Accuracy: A Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models</div>
+<div class="kt-pub-title">Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models</div>
 <div class="kt-pub-authors"><strong>K. Tshering</strong>, S. Das</div>
 </div>
 
