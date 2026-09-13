@@ -65,7 +65,7 @@ Own name in **bold**. \* denotes equal contribution.
    _Zorig Melong_, Vol. 9, No. 1, 2026 — **Published**
 
 4. **Black Box to Survivor Bands: Decoding Sparse Subnetworks in Hyperspectral Image Classification**
-   O. Sadat\*, S. Kamal\*, **K. Tshering**\*, P. Sarkar\*
+   O. Sadat\*, S. Kamal\*, **K. Tshering**\*, P. Sarkar\*, S. Rahman
    _Transactions on Machine Learning Research (TMLR)_ — Under review
 
 5. **H-DAFON: Hierarchical Dynamic Attribute-Guided Network for Few-Shot Open-Set Skin Lesion Recognition**

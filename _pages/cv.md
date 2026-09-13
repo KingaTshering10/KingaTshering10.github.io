@@ -110,7 +110,7 @@ Own name in **bold**. \* denotes equal contribution.
 <div class="kt-pub kt-tilt kt-reveal" markdown="1">
 <span class="kt-pub-venue">TMLR · Under review</span>
 <div class="kt-pub-title">Black Box to Survivor Bands: Decoding Sparse Subnetworks in Hyperspectral Image Classification</div>
-<div class="kt-pub-authors">O. Sadat*, S. Kamal*, <strong>K. Tshering</strong>*, P. Sarkar*</div>
+<div class="kt-pub-authors">O. Sadat*, S. Kamal*, <strong>K. Tshering</strong>*, P. Sarkar*, S. Rahman</div>
 </div>
 
 <div class="kt-pub kt-tilt kt-reveal" markdown="1">
