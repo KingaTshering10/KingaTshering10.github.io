@@ -122,7 +122,7 @@ Own name in **bold**. \* denotes equal contribution.
 <div class="kt-pub kt-tilt kt-reveal" markdown="1">
 <span class="kt-pub-venue">NeurIPS 2026 MusIML Workshop · Under review</span>
 <div class="kt-pub-title">Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models</div>
-<div class="kt-pub-authors"><strong>K. Tshering</strong>, S. Das, S. Z. Ridhoy</div>
+<div class="kt-pub-authors"><strong>K. Tshering</strong>, S. Das, S. Z. Ridoy, M. S. Alim, A. T. Wasi, D.-K. Chae, M. A. Moni</div>
 </div>
 
 ## References
