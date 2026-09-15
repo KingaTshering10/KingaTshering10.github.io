@@ -73,7 +73,8 @@ Own name in **bold**. \* denotes equal contribution.
    _Systems and Soft Computing_ — Under review
 
 6. **Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models**
-   **K. Tshering**, S. Das, S. Z. Ridhoy — In preparation
+   **K. Tshering**, S. Das, S. Z. Ridhoy
+   _NeurIPS 2026 Workshop on Muslims in Machine Learning (MusIML)_ — Under review
 
 ### Education
 
