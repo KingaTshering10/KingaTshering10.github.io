@@ -1,0 +1,709 @@
+<!--
+  AI assistant floating widget.
+  This file is NOT published on its own. It is read by _plugins/ai_assistant.rb
+  and injected before </body> on every rendered page. The profile placeholder
+  in the data script below is replaced at build time with the JSON of
+  _data/ai_profile.yml (see _plugins/ai_assistant.rb).
+-->
+<div id="ai-assistant-root" aria-live="polite">
+  <script type="application/json" id="ai-assistant-data">__AI_PROFILE_JSON__</script>
+
+  <style>
+    #ai-assistant-root {
+      --kt-accent: var(--global-theme-color, #b509ac);
+      --kt-bg: var(--global-bg-color, #ffffff);
+      --kt-panel: var(--global-card-bg-color, var(--global-bg-color, #ffffff));
+      --kt-soft: var(--global-code-bg-color, rgba(0, 0, 0, 0.04));
+      --kt-text: var(--global-text-color, #1c1c1c);
+      --kt-muted: var(--global-text-color-light, #828282);
+      --kt-border: var(--global-divider-color, rgba(0, 0, 0, 0.1));
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 2000;
+      font-family: inherit;
+    }
+
+    #ai-assistant-root *,
+    #ai-assistant-root *::before,
+    #ai-assistant-root *::after {
+      box-sizing: border-box;
+    }
+
+    .kt-ai-fab {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.05rem;
+      border: none;
+      border-radius: 999px;
+      background: var(--kt-accent);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .kt-ai-fab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    }
+    .kt-ai-fab svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      flex: 0 0 auto;
+    }
+    .kt-ai-fab-label {
+      white-space: nowrap;
+    }
+
+    .kt-ai-panel {
+      position: absolute;
+      bottom: calc(100% + 0.75rem);
+      right: 0;
+      width: min(380px, calc(100vw - 2rem));
+      height: min(560px, calc(100vh - 7rem));
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--kt-panel);
+      color: var(--kt-text);
+      border: 1px solid var(--kt-border);
+      border-radius: 1rem;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+    }
+    #ai-assistant-root.kt-open .kt-ai-panel {
+      display: flex;
+    }
+    #ai-assistant-root.kt-open .kt-ai-fab-label {
+      display: none;
+    }
+
+    .kt-ai-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1rem;
+      background: var(--kt-accent);
+      color: #fff;
+    }
+    .kt-ai-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+    .kt-ai-title {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .kt-ai-title strong {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.1;
+    }
+    .kt-ai-title span {
+      display: block;
+      font-size: 0.72rem;
+      opacity: 0.85;
+    }
+    .kt-ai-iconbtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.9rem;
+      height: 1.9rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+    .kt-ai-iconbtn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      opacity: 1;
+    }
+    .kt-ai-iconbtn svg {
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+
+    .kt-ai-body {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      padding: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .kt-ai-msg {
+      max-width: 85%;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.9rem;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      word-wrap: break-word;
+    }
+    .kt-ai-msg.bot {
+      align-self: flex-start;
+      background: var(--kt-soft);
+      color: var(--kt-text);
+      border-bottom-left-radius: 0.25rem;
+    }
+    .kt-ai-msg.user {
+      align-self: flex-end;
+      background: var(--kt-accent);
+      color: #fff;
+      border-bottom-right-radius: 0.25rem;
+    }
+    .kt-ai-msg a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .kt-ai-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0 0.9rem 0.6rem;
+    }
+    .kt-ai-chip {
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--kt-border);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--kt-accent);
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .kt-ai-chip:hover {
+      background: var(--kt-accent);
+      color: #fff;
+    }
+
+    .kt-ai-input {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.7rem;
+      border-top: 1px solid var(--kt-border);
+    }
+    .kt-ai-input textarea {
+      flex: 1 1 auto;
+      resize: none;
+      max-height: 90px;
+      padding: 0.5rem 0.65rem;
+      border: 1px solid var(--kt-border);
+      border-radius: 0.7rem;
+      background: var(--kt-bg);
+      color: var(--kt-text);
+      font-family: inherit;
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+    .kt-ai-input textarea:focus {
+      outline: none;
+      border-color: var(--kt-accent);
+    }
+    .kt-ai-send {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      flex: 0 0 auto;
+      border: none;
+      border-radius: 0.7rem;
+      background: var(--kt-accent);
+      color: #fff;
+      cursor: pointer;
+    }
+    .kt-ai-send:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    .kt-ai-send svg {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+
+    .kt-ai-foot {
+      padding: 0.4rem 0.9rem 0.6rem;
+      font-size: 0.68rem;
+      color: var(--kt-muted);
+      text-align: center;
+    }
+    .kt-ai-foot a {
+      color: var(--kt-muted);
+      margin: 0 0.25rem;
+    }
+
+    .kt-ai-settings {
+      display: none;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0.9rem;
+      overflow-y: auto;
+      font-size: 0.82rem;
+    }
+    #ai-assistant-root.kt-settings .kt-ai-body,
+    #ai-assistant-root.kt-settings .kt-ai-chips,
+    #ai-assistant-root.kt-settings .kt-ai-input,
+    #ai-assistant-root.kt-settings .kt-ai-foot {
+      display: none;
+    }
+    #ai-assistant-root.kt-settings .kt-ai-settings {
+      display: flex;
+    }
+    .kt-ai-settings h4 {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--kt-text);
+    }
+    .kt-ai-settings p {
+      margin: 0;
+      color: var(--kt-muted);
+      line-height: 1.45;
+    }
+    .kt-ai-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .kt-ai-field label {
+      font-weight: 600;
+      color: var(--kt-text);
+    }
+    .kt-ai-field input,
+    .kt-ai-field select {
+      padding: 0.45rem 0.55rem;
+      border: 1px solid var(--kt-border);
+      border-radius: 0.55rem;
+      background: var(--kt-bg);
+      color: var(--kt-text);
+      font-family: inherit;
+      font-size: 0.82rem;
+    }
+    .kt-ai-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--kt-text);
+    }
+    .kt-ai-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+    .kt-ai-btn {
+      flex: 1 1 auto;
+      padding: 0.5rem;
+      border: 1px solid var(--kt-accent);
+      border-radius: 0.6rem;
+      background: var(--kt-accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .kt-ai-btn.ghost {
+      background: transparent;
+      color: var(--kt-accent);
+    }
+    .kt-ai-note {
+      font-size: 0.72rem;
+      color: var(--kt-muted);
+    }
+
+    .kt-ai-typing {
+      display: inline-flex;
+      gap: 0.2rem;
+    }
+    .kt-ai-typing span {
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
+      background: var(--kt-muted);
+      animation: kt-ai-bounce 1s infinite ease-in-out;
+    }
+    .kt-ai-typing span:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    .kt-ai-typing span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    @keyframes kt-ai-bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40% { transform: translateY(-0.25rem); opacity: 1; }
+    }
+
+    @media (max-width: 480px) {
+      #ai-assistant-root {
+        bottom: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+  </style>
+
+  <button class="kt-ai-fab" type="button" aria-label="Open AI assistant" data-kt="fab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3a7 7 0 0 1 7 7v1a7 7 0 0 1-7 7H8l-4 3v-4a7 7 0 0 1-1-3v-1a7 7 0 0 1 7-7z"></path>
+      <circle cx="9" cy="11" r="1"></circle>
+      <circle cx="15" cy="11" r="1"></circle>
+    </svg>
+    <span class="kt-ai-fab-label">Ask AI</span>
+  </button>
+
+  <div class="kt-ai-panel" role="dialog" aria-label="AI assistant">
+    <div class="kt-ai-header">
+      <div class="kt-ai-avatar" data-kt="avatar">KT</div>
+      <div class="kt-ai-title">
+        <strong data-kt="title">Ask about Kinga</strong>
+        <span data-kt="subtitle">AI assistant</span>
+      </div>
+      <button class="kt-ai-iconbtn" type="button" aria-label="Settings" data-kt="settings-open">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.14.31.4.57.72.72H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </button>
+      <button class="kt-ai-iconbtn" type="button" aria-label="Close" data-kt="close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="kt-ai-body" data-kt="body"></div>
+    <div class="kt-ai-chips" data-kt="chips"></div>
+
+    <div class="kt-ai-input">
+      <textarea data-kt="text" rows="1" placeholder="Ask a question..." aria-label="Message"></textarea>
+      <button class="kt-ai-send" type="button" aria-label="Send" data-kt="send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+
+    <div class="kt-ai-foot" data-kt="foot"></div>
+
+    <div class="kt-ai-settings">
+      <h4>Assistant settings</h4>
+      <p>
+        By default this assistant answers from a built-in knowledge base — no setup
+        needed. Turn on <strong>Power mode</strong> to route answers through the
+        Anthropic API for richer, conversational replies grounded in the same profile.
+      </p>
+      <label class="kt-ai-toggle">
+        <input type="checkbox" data-kt="power-toggle" />
+        Enable power mode (LLM)
+      </label>
+      <div class="kt-ai-field">
+        <label for="kt-ai-key">Anthropic API key</label>
+        <input id="kt-ai-key" type="password" data-kt="key" placeholder="sk-ant-..." autocomplete="off" />
+        <span class="kt-ai-note">Stored only in this browser (localStorage) and sent directly to Anthropic. Never uploaded to this site.</span>
+      </div>
+      <div class="kt-ai-field">
+        <label for="kt-ai-model">Model</label>
+        <select id="kt-ai-model" data-kt="model">
+          <option value="claude-haiku-4-5">Claude Haiku 4.5 — fast &amp; economical</option>
+          <option value="claude-sonnet-5">Claude Sonnet 5 — balanced</option>
+          <option value="claude-opus-4-8">Claude Opus 4.8 — most capable</option>
+        </select>
+      </div>
+      <div class="kt-ai-actions">
+        <button class="kt-ai-btn" type="button" data-kt="settings-save">Save</button>
+        <button class="kt-ai-btn ghost" type="button" data-kt="settings-clear">Clear key</button>
+      </div>
+      <button class="kt-ai-btn ghost" type="button" data-kt="settings-back">Back to chat</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.getElementById("ai-assistant-root");
+      if (!root || root.dataset.ktReady) return;
+      root.dataset.ktReady = "1";
+
+      var PROFILE = {};
+      try {
+        PROFILE = JSON.parse(document.getElementById("ai-assistant-data").textContent) || {};
+      } catch (e) {
+        PROFILE = {};
+      }
+      var sections = PROFILE.sections || [];
+      var STORE = "ktAiSettings";
+      var q = function (sel) { return root.querySelector('[data-kt="' + sel + '"]'); };
+
+      var els = {
+        fab: q("fab"), close: q("close"), body: q("body"), chips: q("chips"),
+        text: q("text"), send: q("send"), foot: q("foot"), avatar: q("avatar"),
+        title: q("title"), subtitle: q("subtitle"),
+        settingsOpen: q("settings-open"), settingsBack: q("settings-back"),
+        settingsSave: q("settings-save"), settingsClear: q("settings-clear"),
+        powerToggle: q("power-toggle"), key: q("key"), model: q("model")
+      };
+
+      var history = [];       // conversation for LLM: {role, content}
+      var greeted = false;
+
+      // ---- settings persistence ------------------------------------------
+      function loadSettings() {
+        var s = {};
+        try { s = JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { s = {}; }
+        return s;
+      }
+      function saveSettings(s) {
+        try { localStorage.setItem(STORE, JSON.stringify(s)); } catch (e) {}
+      }
+      var settings = loadSettings();
+      els.powerToggle.checked = !!settings.power;
+      els.key.value = settings.key || "";
+      els.model.value = settings.model || "claude-haiku-4-5";
+
+      // ---- static text ---------------------------------------------------
+      if (PROFILE.avatar_initials) els.avatar.textContent = PROFILE.avatar_initials;
+      if (PROFILE.short_name) els.title.textContent = "Ask about " + PROFILE.short_name;
+      var links = PROFILE.links || [];
+      els.foot.innerHTML = links.map(function (l) {
+        return '<a href="' + l.url + '" target="_blank" rel="noopener">' + escapeHtml(l.label) + "</a>";
+      }).join("·");
+
+      // ---- helpers -------------------------------------------------------
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+      function linkify(text) {
+        var safe = escapeHtml(text);
+        safe = safe.replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1">$1</a>');
+        safe = safe.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+        return safe.replace(/\n/g, "<br>");
+      }
+      function addMsg(text, who) {
+        var el = document.createElement("div");
+        el.className = "kt-ai-msg " + who;
+        el.innerHTML = who === "bot" ? linkify(text) : escapeHtml(text);
+        els.body.appendChild(el);
+        els.body.scrollTop = els.body.scrollHeight;
+        return el;
+      }
+      function typing() {
+        var el = document.createElement("div");
+        el.className = "kt-ai-msg bot";
+        el.innerHTML = '<span class="kt-ai-typing"><span></span><span></span><span></span></span>';
+        els.body.appendChild(el);
+        els.body.scrollTop = els.body.scrollHeight;
+        return el;
+      }
+
+      // ---- offline knowledge-base engine ---------------------------------
+      function offlineAnswer(query) {
+        var raw = query.toLowerCase().trim();
+        // Padded, punctuation-stripped text for whole-word / phrase matching.
+        var text = " " + raw.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim() + " ";
+        var tokens = text.trim().split(" ").filter(function (t) { return t.length > 1; });
+
+        if (/^(hi|hello|hey|yo|greetings|good (morning|afternoon|evening))\b/.test(raw)) {
+          return "Hi! I'm " + (PROFILE.short_name || "the") + "'s assistant. Ask me about "
+            + (PROFILE.short_name || "their") + " research, education, publications, projects, or how to get in touch.";
+        }
+        if (/\b(thanks|thank you|thx|cheers|appreciate)\b/.test(raw)) {
+          return "You're welcome! Anything else you'd like to know?";
+        }
+        if (/\b(who are you|what are you|are you (a )?(bot|ai|real))\b/.test(raw)) {
+          return PROFILE.identity || "I'm an AI assistant that answers questions about this profile.";
+        }
+
+        var best = null, bestScore = 0;
+        sections.forEach(function (s) {
+          var score = 0;
+          (s.keywords || []).forEach(function (kw) {
+            var k = String(kw).toLowerCase().trim();
+            if (k.indexOf(" ") !== -1) {
+              // Multi-word phrase: substring match on the normalized text.
+              if (text.indexOf(k) !== -1) score += 3;
+            } else {
+              // Single word: whole-word match, plus a light stem match for
+              // plurals / inflections (e.g. "projects" ~ "project").
+              tokens.forEach(function (t) {
+                if (t === k) score += 2;
+                else if (k.length >= 5 && t.length >= 5 && (t.indexOf(k) === 0 || k.indexOf(t) === 0)) score += 1;
+              });
+            }
+          });
+          if (score > bestScore) { bestScore = score; best = s; }
+        });
+
+        if (best && bestScore > 0) {
+          var others = sections.filter(function (s) { return s.id !== best.id; })
+            .slice(0, 3).map(function (s) { return s.title.toLowerCase(); });
+          var suffix = others.length ? "\n\nYou can also ask about " + others.join(", ") + "." : "";
+          return best.answer.trim() + suffix;
+        }
+
+        var topics = sections.map(function (s) { return s.title.toLowerCase(); }).join(", ");
+        return "I'm not sure about that one. I can help with: " + topics
+          + ". For anything else, the best way is to email " + (PROFILE.short_name || "them") + " directly.";
+      }
+
+      // ---- power mode (Anthropic API) ------------------------------------
+      function systemPrompt() {
+        var parts = [PROFILE.identity || ""];
+        parts.push("\nKnowledge about " + (PROFILE.name || "the person") + ":");
+        sections.forEach(function (s) {
+          parts.push("- " + s.title + ": " + s.answer.trim());
+        });
+        if (PROFILE.contact) {
+          parts.push("\nContact: emails " + (PROFILE.contact.emails || []).join(", ")
+            + (PROFILE.contact.location ? "; based in " + PROFILE.contact.location : "") + ".");
+        }
+        parts.push("\nAnswer as a friendly, concise assistant speaking about "
+          + (PROFILE.short_name || "this person")
+          + ". Use only the information above. If something is not covered, say you don't have that detail and suggest emailing directly. Keep answers to a few sentences.");
+        return parts.join("\n");
+      }
+
+      function powerAnswer(query, done) {
+        history.push({ role: "user", content: query });
+        fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "x-api-key": settings.key,
+            "anthropic-version": "2023-06-01",
+            "anthropic-dangerous-direct-browser-access": "true"
+          },
+          body: JSON.stringify({
+            model: settings.model || "claude-haiku-4-5",
+            max_tokens: 1024,
+            system: systemPrompt(),
+            messages: history.slice(-12)
+          })
+        }).then(function (res) {
+          return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+        }).then(function (r) {
+          if (!r.ok) {
+            var msg = (r.data && r.data.error && r.data.error.message) || "request failed";
+            done("Power mode error: " + msg + " (falling back to the built-in answer)\n\n" + offlineAnswer(query), true);
+            return;
+          }
+          var out = "";
+          (r.data.content || []).forEach(function (b) { if (b.type === "text") out += b.text; });
+          out = out.trim() || offlineAnswer(query);
+          history.push({ role: "assistant", content: out });
+          done(out, false);
+        }).catch(function () {
+          done("Couldn't reach the Anthropic API (check your key or connection).\n\n" + offlineAnswer(query), true);
+        });
+      }
+
+      // ---- send flow -----------------------------------------------------
+      function respond(query) {
+        addMsg(query, "user");
+        var powerOn = els.powerToggle.checked && settings.key;
+        if (powerOn) {
+          var t = typing();
+          powerAnswer(query, function (answer) {
+            t.remove();
+            addMsg(answer, "bot");
+          });
+        } else {
+          var t2 = typing();
+          setTimeout(function () {
+            t2.remove();
+            addMsg(offlineAnswer(query), "bot");
+          }, 250);
+        }
+      }
+
+      function submit() {
+        var v = els.text.value.trim();
+        if (!v) return;
+        els.text.value = "";
+        els.text.style.height = "auto";
+        respond(v);
+      }
+
+      // ---- chips ---------------------------------------------------------
+      function renderChips() {
+        var qs = PROFILE.quick_questions || [];
+        els.chips.innerHTML = "";
+        qs.forEach(function (question) {
+          var b = document.createElement("button");
+          b.className = "kt-ai-chip";
+          b.type = "button";
+          b.textContent = question;
+          b.addEventListener("click", function () { respond(question); });
+          els.chips.appendChild(b);
+        });
+      }
+
+      // ---- open / close / settings --------------------------------------
+      function open() {
+        root.classList.add("kt-open");
+        root.classList.remove("kt-settings");
+        if (!greeted) {
+          greeted = true;
+          addMsg("Hi! I'm " + (PROFILE.short_name || "the") + "'s AI assistant. Ask me anything about "
+            + (PROFILE.short_name || "them") + " — or tap a question below.", "bot");
+        }
+        setTimeout(function () { els.text.focus(); }, 50);
+      }
+      function close() { root.classList.remove("kt-open", "kt-settings"); }
+
+      els.fab.addEventListener("click", function () {
+        if (root.classList.contains("kt-open")) close(); else open();
+      });
+      els.close.addEventListener("click", close);
+      els.send.addEventListener("click", submit);
+      els.text.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submit(); }
+      });
+      els.text.addEventListener("input", function () {
+        els.text.style.height = "auto";
+        els.text.style.height = Math.min(els.text.scrollHeight, 90) + "px";
+      });
+
+      els.settingsOpen.addEventListener("click", function () { root.classList.add("kt-settings"); });
+      els.settingsBack.addEventListener("click", function () { root.classList.remove("kt-settings"); });
+      els.settingsSave.addEventListener("click", function () {
+        settings.power = els.powerToggle.checked;
+        settings.key = els.key.value.trim();
+        settings.model = els.model.value;
+        saveSettings(settings);
+        root.classList.remove("kt-settings");
+        addMsg(settings.power && settings.key
+          ? "Power mode is on — I'll use the " + settings.model + " model for richer answers."
+          : "Saved. I'll use the built-in knowledge base.", "bot");
+      });
+      els.settingsClear.addEventListener("click", function () {
+        els.key.value = "";
+        settings.key = "";
+        settings.power = false;
+        els.powerToggle.checked = false;
+        saveSettings(settings);
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && root.classList.contains("kt-open")) close();
+      });
+
+      renderChips();
+    })();
+  </script>
+</div>
