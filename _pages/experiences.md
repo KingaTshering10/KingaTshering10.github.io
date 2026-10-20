@@ -4,7 +4,7 @@ title: experience
 permalink: /experience/
 nav: true
 nav_order: 5
-description: Teaching, leadership, and community service.
+description: Industry, teaching, leadership, and community service.
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/kt.css' | relative_url }}" />
@@ -13,9 +13,35 @@ description: Teaching, leadership, and community service.
 <div class="kt-hero kt-enter" markdown="0" data-kt-constellation>
   <span class="kt-eyebrow kt-enter">Experience</span>
   <p>
-    Teaching two undergraduate CSE courses, coordinating for the Bhutanese student community at North
-    South University, and four years of youth-focused volunteer work in Bhutan.
+    Building software at Thimphu TechPark, teaching two undergraduate CSE courses, coordinating for the
+    Bhutanese student community at North South University, and four years of youth-focused volunteer
+    work in Bhutan.
   </p>
+</div>
+
+## Industry
+
+<div class="kt-timeline" data-kt-stagger="110">
+
+<div class="kt-tl-item kt-card kt-tilt kt-reveal" markdown="1">
+
+<div class="kt-tl-head">
+  <span class="kt-tl-title">Software Developer</span>
+  <span class="kt-tl-date">2026 — present</span>
+</div>
+
+<div class="kt-tl-org">Thimphu TechPark Limited</div>
+<div class="kt-tl-sub">Thimphu, Bhutan</div>
+
+<div class="kt-badges">
+  <span class="kt-badge kt-badge--accent">Software development</span>
+</div>
+
+Joined on 28 September 2026 as a software developer, building and maintaining software
+as part of the engineering team.
+
+</div>
+
 </div>
 
 ## Teaching
