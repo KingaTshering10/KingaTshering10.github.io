@@ -852,6 +852,105 @@
     });
   }
 
+  /* ---------------------------------------------- research explainer (2x2) */
+
+  function initExplainer() {
+    var root = document.querySelector("[data-kt-explainer]");
+    if (!root) return;
+
+    var grid = root.querySelector(".kt-exp-grid");
+    var slider = root.querySelector("[data-kt-exp-slider]");
+    var strictVal = root.querySelector("[data-kt-exp-strictval]");
+    var takeaway = root.querySelector("[data-kt-exp-takeaway]");
+    var cells = {
+      cc: root.querySelector('[data-cell="cc"]'),
+      cw: root.querySelector('[data-cell="cw"]'),
+      ic: root.querySelector('[data-cell="ic"]'),
+      iw: root.querySelector('[data-cell="iw"]'),
+    };
+    var stats = {
+      strict: root.querySelector('[data-kt-exp="strict"]'),
+      compliance: root.querySelector('[data-kt-exp="compliance"]'),
+      correctness: root.querySelector('[data-kt-exp="correctness"]'),
+    };
+    if (!grid || !slider || !cells.cc) return;
+
+    // Read the dots out of the markup once; this is the source of truth so the
+    // no-JS state and the interactive state always describe the same 20 models.
+    var dots = Array.prototype.slice.call(root.querySelectorAll(".kt-exp-dot")).map(function (el) {
+      return { el: el, rank: parseInt(el.getAttribute("data-rank"), 10), correct: el.getAttribute("data-correct") === "1" };
+    });
+    var TOTAL = dots.length;
+    var nCorrect = dots.filter(function (d) { return d.correct; }).length;
+    var view = "strict";
+
+    function render() {
+      var strictness = parseInt(slider.value, 10);
+      var nIgnore = Math.round((strictness / 100) * TOTAL);
+      var bucket = { cc: [], cw: [], ic: [], iw: [] };
+
+      dots.forEach(function (d) {
+        var complied = d.rank > nIgnore;
+        bucket[(complied ? "c" : "i") + (d.correct ? "c" : "w")].push(d);
+      });
+
+      Object.keys(cells).forEach(function (key) {
+        var frag = document.createDocumentFragment();
+        bucket[key].forEach(function (d) { frag.appendChild(d.el); });
+        cells[key].appendChild(frag);
+      });
+
+      var complied = bucket.cc.length + bucket.cw.length;
+      var pct = function (n) { return Math.round((n / TOTAL) * 100); };
+      var strictP = pct(bucket.cc.length);
+      var compP = pct(complied);
+      var corrP = pct(nCorrect);
+
+      stats.strict.textContent = strictP + "%";
+      stats.compliance.textContent = compP + "%";
+      stats.correctness.textContent = corrP + "%";
+      if (strictVal) strictVal.textContent = strictness + "%";
+
+      stats.strict.closest(".kt-exp-stat").querySelector(".kt-exp-bar i").style.width = strictP + "%";
+      stats.compliance.closest(".kt-exp-stat").querySelector(".kt-exp-bar i").style.width = compP + "%";
+      stats.correctness.closest(".kt-exp-stat").querySelector(".kt-exp-bar i").style.width = corrP + "%";
+
+      var misjudged = bucket.ic.length; // correct reasoning, marked wrong for format
+      if (misjudged === 0) {
+        takeaway.innerHTML =
+          "At this strictness every correct answer is also well-formatted, so strict accuracy (<strong>" +
+          strictP + "%</strong>) and the correctness rate (<strong>" + corrP +
+          "%</strong>) agree. The two views only diverge once the grader starts rejecting answers on format.";
+      } else {
+        takeaway.innerHTML =
+          "Strict accuracy reads <strong>" + strictP + "%</strong>, but the model reasons correctly <strong>" +
+          corrP + "%</strong> of the time. The gap is <strong>" + misjudged + "</strong> response" +
+          (misjudged === 1 ? "" : "s") +
+          " that were right on the merits and marked wrong only for ignoring the format — a failure the decomposition keeps separate.";
+      }
+    }
+
+    function setView(next) {
+      view = next;
+      grid.setAttribute("data-highlight", view);
+      root.querySelectorAll(".kt-exp-viewbtn").forEach(function (b) {
+        b.setAttribute("aria-pressed", b.getAttribute("data-view") === view ? "true" : "false");
+      });
+      var active = view === "strict" ? { strict: 1 } : { compliance: 1, correctness: 1 };
+      root.querySelectorAll(".kt-exp-stat").forEach(function (st) {
+        st.setAttribute("data-active", active[st.getAttribute("data-stat")] ? "1" : "0");
+      });
+    }
+
+    slider.addEventListener("input", render);
+    root.querySelectorAll(".kt-exp-viewbtn").forEach(function (b) {
+      b.addEventListener("click", function () { setView(b.getAttribute("data-view")); });
+    });
+
+    setView("strict");
+    render();
+  }
+
   /* ------------------------------------------------------------- bootstrap */
 
   function init() {
@@ -874,6 +973,7 @@
     initTimelines();
     initAnchors();
     initRail();
+    initExplainer();
     initPageTransition();
   }
 

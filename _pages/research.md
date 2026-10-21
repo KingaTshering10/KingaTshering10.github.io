@@ -91,6 +91,101 @@ Three lines of work across pruning, evaluation, and benchmark construction.
 
 </div>
 
+## The compliance–correctness split
+
+<div class="kt-explainer kt-reveal" data-kt-explainer markdown="0">
+
+  <div class="kt-exp-intro">
+    <span class="kt-eyebrow">Interactive</span>
+    <p>
+      Score a small language model on a reasoning task and a single accuracy number has to answer two
+      questions at once: did the model <strong>reason correctly</strong>, and did it <strong>return
+      the answer in the format the grader demanded</strong>? When a model reasons well but ignores the
+      format, strict accuracy marks it wrong — indistinguishable from a model that genuinely failed.
+      Drag the grader’s strictness and watch the two views disagree.
+    </p>
+  </div>
+
+  <div class="kt-exp-body">
+
+    <div class="kt-exp-grid" role="img" aria-label="A two-by-two grid of twenty model responses, split by whether the reasoning was correct and whether the output complied with the required format.">
+      <div class="kt-exp-corner"></div>
+      <div class="kt-exp-colh" data-col="c">Complied with format</div>
+      <div class="kt-exp-colh" data-col="i">Ignored the format</div>
+
+      <div class="kt-exp-rowh" data-row="c">Reasoning correct</div>
+      <div class="kt-exp-cell" data-cell="cc">
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="10" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="11" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="13" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="14" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="16" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="17" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="18" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="20" data-correct="1"></span>
+      </div>
+      <div class="kt-exp-cell" data-cell="ic">
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="1" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="3" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="4" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="6" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="7" data-correct="1"></span>
+      <span class="kt-exp-dot kt-exp-dot--correct" data-rank="9" data-correct="1"></span>
+      </div>
+
+      <div class="kt-exp-rowh" data-row="w">Reasoning wrong</div>
+      <div class="kt-exp-cell" data-cell="cw">
+      <span class="kt-exp-dot kt-exp-dot--wrong" data-rank="12" data-correct="0"></span>
+      <span class="kt-exp-dot kt-exp-dot--wrong" data-rank="15" data-correct="0"></span>
+      <span class="kt-exp-dot kt-exp-dot--wrong" data-rank="19" data-correct="0"></span>
+      </div>
+      <div class="kt-exp-cell" data-cell="iw">
+      <span class="kt-exp-dot kt-exp-dot--wrong" data-rank="2" data-correct="0"></span>
+      <span class="kt-exp-dot kt-exp-dot--wrong" data-rank="5" data-correct="0"></span>
+      <span class="kt-exp-dot kt-exp-dot--wrong" data-rank="8" data-correct="0"></span>
+      </div>
+    </div>
+
+    <div class="kt-exp-side">
+
+      <div class="kt-exp-controls">
+        <label class="kt-exp-sliderlabel" for="kt-exp-strictness">
+          Grader format strictness
+          <span class="kt-exp-sliderval" data-kt-exp-strictval>45%</span>
+        </label>
+        <input id="kt-exp-strictness" class="kt-exp-slider" type="range" min="0" max="100" step="5" value="45" data-kt-exp-slider>
+
+        <div class="kt-exp-toggle" role="group" aria-label="Scoring view">
+          <button type="button" class="kt-exp-viewbtn" data-view="strict" aria-pressed="true">Strict accuracy</button>
+          <button type="button" class="kt-exp-viewbtn" data-view="decomp" aria-pressed="false">Compliance × correctness</button>
+        </div>
+      </div>
+
+      <div class="kt-exp-stats">
+        <div class="kt-exp-stat" data-stat="strict">
+          <div class="kt-exp-statline"><span class="kt-exp-statname">Strict accuracy</span><span class="kt-exp-statval" data-kt-exp="strict">40%</span></div>
+          <div class="kt-exp-bar"><i style="width:40%"></i></div>
+        </div>
+        <div class="kt-exp-stat" data-stat="compliance">
+          <div class="kt-exp-statline"><span class="kt-exp-statname">Compliance rate</span><span class="kt-exp-statval" data-kt-exp="compliance">55%</span></div>
+          <div class="kt-exp-bar"><i style="width:55%"></i></div>
+        </div>
+        <div class="kt-exp-stat" data-stat="correctness">
+          <div class="kt-exp-statline"><span class="kt-exp-statname">Correctness rate</span><span class="kt-exp-statval" data-kt-exp="correctness">70%</span></div>
+          <div class="kt-exp-bar"><i style="width:70%"></i></div>
+        </div>
+      </div>
+
+      <p class="kt-exp-takeaway" data-kt-exp-takeaway>
+        Strict accuracy reads <strong>40%</strong>, but the model actually reasons correctly
+        <strong>70%</strong> of the time. The gap is six responses that were right on the merits and
+        marked wrong only for ignoring the format.
+      </p>
+
+    </div>
+  </div>
+</div>
+
 ## Selected software
 
 <div class="kt-filters" data-kt-filter="software">
