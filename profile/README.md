@@ -16,7 +16,7 @@
   <img alt="ICML 2026 accepted" src="https://img.shields.io/badge/ICML%202026-Accepted-15803d?style=flat-square">
   <img alt="EMNLP 2026 Findings accepted" src="https://img.shields.io/badge/EMNLP%202026%20Findings-Accepted-15803d?style=flat-square">
   <img alt="NeurIPS 2026 MusIML accepted" src="https://img.shields.io/badge/NeurIPS%202026%20MusIML-Accepted-15803d?style=flat-square">
-  <img alt="Two papers under review" src="https://img.shields.io/badge/Under%20review-TMLR%20%7C%20SSC-b45309?style=flat-square">
+  <img alt="Three papers under review" src="https://img.shields.io/badge/Under%20review-TMLR%20%7C%20SSC%20%7C%20ARR-b45309?style=flat-square">
 </p>
 
 ---
@@ -74,6 +74,10 @@ _Systems and Soft Computing_ &nbsp;<img alt="Under review" src="https://img.shie
 **6 · Compliance–Correctness Decomposition for Post-Training Evaluation of Small Language Models**
 **K. Tshering**, S. Das, S. Z. Ridoy, M. S. Alim, A. T. Wasi, D.-K. Chae, M. A. Moni
 _NeurIPS 2026 Workshop on Muslims in Machine Learning (MusIML)_ &nbsp;<img alt="Accepted" src="https://img.shields.io/badge/Accepted-15803d?style=flat-square">
+
+**7 · Beyond Benchmark Scores: A Paired Audit of Acceptance and Correctness After Fine-Tuning Small Language Models**
+**K. Tshering**, S. Das, S. Z. Ridoy, M. S. Alim, A. T. Wasi, D.-K. Chae, M. A. Moni
+_ACL Rolling Review (October 2026 cycle)_ &nbsp;<img alt="Under review" src="https://img.shields.io/badge/Under%20review-b45309?style=flat-square">
 
 ## Technical skills
 

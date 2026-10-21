@@ -125,6 +125,12 @@ Own name in **bold**. \* denotes equal contribution.
 <div class="kt-pub-authors"><strong>K. Tshering</strong>, S. Das, S. Z. Ridoy, M. S. Alim, A. T. Wasi, D.-K. Chae, M. A. Moni</div>
 </div>
 
+<div class="kt-pub kt-tilt kt-reveal" markdown="1">
+<span class="kt-pub-venue">ACL Rolling Review, Oct 2026 · Under review</span>
+<div class="kt-pub-title">Beyond Benchmark Scores: A Paired Audit of Acceptance and Correctness After Fine-Tuning Small Language Models</div>
+<div class="kt-pub-authors"><strong>K. Tshering</strong>, S. Das, S. Z. Ridoy, M. S. Alim, A. T. Wasi, D.-K. Chae, M. A. Moni</div>
+</div>
+
 ## References
 
 <div class="kt-grid kt-grid--2" data-kt-stagger="90">
