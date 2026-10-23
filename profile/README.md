@@ -1,8 +1,14 @@
 <h1 align="center">Kinga Tshering</h1>
 
 <p align="center">
-  <b>Machine learning researcher</b> — evaluation, efficiency, and interpretability of neural models<br>
-  B.Sc. Computer Science and Engineering · <b>North South University</b>, Dhaka
+  <a href="https://kingatshering10.github.io">
+    <img alt="Research focus" src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&pause=900&color=2F81F7&center=true&vCenter=true&width=640&height=42&lines=Machine+learning+researcher;LLM+evaluation+%26+reliability;Efficient+deep+learning+%26+pruning;Interpretability+of+neural+models">
+  </a>
+</p>
+
+<p align="center">
+  Evaluation, efficiency, and interpretability of neural models<br>
+  B.Sc. Computer Science and Engineering · <b>North South University</b>, Dhaka · Software Developer at <b>Thimphu TechPark</b>
 </p>
 
 <p align="center">
@@ -178,6 +184,13 @@ histories.
 </details>
 
 ---
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=KingaTshering10&show_icons=true&hide_border=true&hide_rank=false&theme=github_dark&title_color=58a6ff&icon_color=58a6ff">
+    <img alt="Kinga Tshering's GitHub statistics" src="https://github-readme-stats.vercel.app/api?username=KingaTshering10&show_icons=true&hide_border=true&hide_rank=false&title_color=1f6feb&icon_color=1f6feb">
+  </picture>
+</p>
 
 <p align="center">
   <i>Open to research collaborations and Ph.D. opportunities in machine learning.</i><br>
