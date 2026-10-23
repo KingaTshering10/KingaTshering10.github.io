@@ -1,0 +1,47 @@
+name: DrukAgriLink Docker
+
+on:
+  push:
+    branches: [main, master]
+    paths: ["druk-agrilink/**", ".github/workflows/drukagrilink-docker.yml"]
+  pull_request:
+    paths:
+      - "druk-agrilink/apps/api/**"
+      - "druk-agrilink/apps/web/**"
+      - "druk-agrilink/docker-compose.yml"
+      - ".github/workflows/drukagrilink-docker.yml"
+
+jobs:
+  build-images:
+    name: Build production images
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build API image
+        uses: docker/build-push-action@v6
+        with:
+          context: druk-agrilink/apps/api
+          push: false
+          load: true
+          tags: drukagrilink-api:ci
+      - name: Build Web image
+        uses: docker/build-push-action@v6
+        with:
+          context: druk-agrilink/apps/web
+          push: false
+          load: true
+          tags: drukagrilink-web:ci
+      - name: Smoke-test API container
+        run: |
+          docker run -d --name api-smoke \
+            -e DRUK_DATABASE_URL=sqlite:////tmp/smoke.db \
+            -e DRUK_JWT_SECRET=ci-only-secret \
+            -p 8000:8000 drukagrilink-api:ci
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:8000/health >/dev/null; then
+              echo "API healthy"; exit 0
+            fi
+            sleep 2
+          done
+          echo "API failed to become healthy"; docker logs api-smoke; exit 1

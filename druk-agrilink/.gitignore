@@ -1,0 +1,23 @@
+# environments & secrets
+.env
+*.env.local
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# node
+node_modules/
+.next/
+out/
+coverage/
+
+# runtime artifacts
+var/
+*.db
+*.sqlite3
