@@ -23,14 +23,14 @@ Edit at https://github.com/settings/profile
 | Field               | Value                                                                                                                                                       |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Name**            | `Kinga Tshering` _(remove the trailing space in the current value)_                                                                                         |
-| **Bio**             | `Research Intern @ University of Arizona. B.Sc. CSE, North South University. LLM evaluation, efficient deep learning, interpretability. ICML & EMNLP 2026.` |
+| **Bio**             | `ML researcher — LLM evaluation, efficiency, interpretability. Software Developer @ Thimphu TechPark. B.Sc. CSE, North South University. ICML & EMNLP 2026.` |
 | **Pronouns**        | _your choice — optional_                                                                                                                                    |
 | **URL**             | `https://kingatshering10.github.io`                                                                                                                         |
-| **Company**         | `University of Arizona`                                                                                                                                     |
+| **Company**         | `Thimphu TechPark Limited`                                                                                                                                   |
 | **Location**        | `Dhaka, Bangladesh`                                                                                                                                         |
 | **Social accounts** | `https://www.linkedin.com/in/kinga-tshering-036a99138/`<br>`https://scholar.google.com/citations?user=b6lJ-mQAAAAJ`                                         |
 
-Bio is 153 characters; GitHub's limit is 160.
+Bio is 154 characters; GitHub's limit is 160.
 
 Set the **profile picture** to the same photo as your website (`assets/img/prof_pic.png`).
 One consistent face across GitHub, the website, LinkedIn and Scholar is what makes a set of
