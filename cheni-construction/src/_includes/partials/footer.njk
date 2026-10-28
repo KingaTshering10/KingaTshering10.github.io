@@ -1,0 +1,23 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand brand--footer"><span class="brand-mark">C</span><span class="brand-text">{{ site.shortName }}</span></div>
+      <p>{{ site.tagline }}</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>{{ site.address }}<br />
+        <a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a><br />
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul class="footer-links">
+        {% for item in site.nav %}<li><a href="{{ item.url }}">{{ item.text }}</a></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {{ site.founded }}&ndash;{{ build.year }} {{ site.name }}. All rights reserved.</p>
+  </div>
+</footer>

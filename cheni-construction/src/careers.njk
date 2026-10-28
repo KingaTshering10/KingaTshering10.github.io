@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: Careers
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Join the team</p>
+    <h1>Careers</h1>
+    <p class="lead">Open positions at {{ site.shortName }}. Apply by email — details are on each listing.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="job-list">
+      {% if collections.jobs.length %}
+        {% for job in collections.jobs %}
+          <a class="job-card" href="{{ job.url }}">
+            <div>
+              <h3>{{ job.data.title }}</h3>
+              <div class="meta">
+                {% if job.data.location %}{{ job.data.location }}{% endif %}
+                {% if job.data.type %} &middot; {{ job.data.type }}{% endif %}
+                {% if job.data.deadline %} &middot; Apply by {{ job.data.deadline }}{% endif %}
+              </div>
+            </div>
+            <span class="btn btn--dark">View &amp; apply</span>
+          </a>
+        {% endfor %}
+      {% else %}
+        <p class="empty">There are no open positions right now. Please check back later.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+{
+  "layout": "layouts/news.njk",
+  "tags": "news"
+}

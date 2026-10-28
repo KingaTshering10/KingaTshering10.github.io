@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero page-hero--sm">
+  <div class="container">
+    <p class="eyebrow"><a href="/news/">News</a></p>
+    <h1>{{ title }}</h1>
+    <p class="post-meta">{{ page.date | dateDisplay }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ content | safe }}
+    <p class="back-link"><a href="/news/">&larr; Back to all news</a></p>
+  </div>
+</section>

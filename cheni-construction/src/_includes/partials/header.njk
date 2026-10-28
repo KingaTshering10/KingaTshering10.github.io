@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">C</span>
+      <span class="brand-text">{{ site.shortName }}</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu" />
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></label>
+    <nav class="site-nav">
+      {% for item in site.nav %}
+        <a href="{{ item.url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>{{ item.text }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

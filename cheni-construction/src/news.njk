@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: News
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Updates</p>
+    <h1>News</h1>
+    <p class="lead">Company announcements, project milestones, and notices.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="feed">
+      {% if collections.newsRecent.length %}
+        {% for post in collections.newsRecent %}
+          <a class="feed-item" href="{{ post.url }}">
+            <span class="date">{{ post.date | dateDisplay }}</span>
+            <h3>{{ post.data.title }}</h3>
+            {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+          </a>
+        {% endfor %}
+      {% else %}
+        <p class="empty">No news yet. New posts added through the admin panel will show here.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero page-hero--sm">
+  <div class="container">
+    <p class="eyebrow"><a href="/careers/">Careers</a></p>
+    <h1>{{ title }}</h1>
+    <ul class="job-facts">
+      {% if location %}<li><strong>Location</strong> {{ location }}</li>{% endif %}
+      {% if type %}<li><strong>Type</strong> {{ type }}</li>{% endif %}
+      {% if positions %}<li><strong>Openings</strong> {{ positions }}</li>{% endif %}
+      {% if deadline %}<li><strong>Apply by</strong> {{ deadline }}</li>{% endif %}
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="container prose">
+    {{ content | safe }}
+    <div class="apply-box">
+      <h3>How to apply</h3>
+      <p>Send your CV and a short cover note to
+        <a href="mailto:{{ site.email }}?subject=Application: {{ title }}">{{ site.email }}</a>,
+        or call us at <a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a>.</p>
+    </div>
+    <p class="back-link"><a href="/careers/">&larr; Back to all openings</a></p>
+  </div>
+</section>

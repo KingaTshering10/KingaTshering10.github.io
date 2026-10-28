@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">{{ site.name }}</p>
+    <h1>{{ site.tagline }}</h1>
+    <p class="lead">
+      We deliver civil, building, and infrastructure projects across Bhutan — on
+      time, on budget, and built to last.
+    </p>
+    <div class="hero-actions">
+      <a class="btn" href="/projects/">View our work</a>
+      <a class="btn btn--ghost" href="/contact/">Request a quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-3">
+    <div class="card">
+      <div class="icon">🏗️</div>
+      <h3>Building construction</h3>
+      <p>Residential, commercial, and institutional buildings from foundation to finish.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🛣️</div>
+      <h3>Civil &amp; infrastructure</h3>
+      <p>Roads, drainage, retaining structures, and site development works.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧱</div>
+      <h3>Renovation &amp; repair</h3>
+      <p>Upgrades, maintenance, and structural repair for existing properties.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container grid grid-3">
+    <div class="card card--stat"><div class="num">10+</div><p>Projects delivered</p></div>
+    <div class="card card--stat"><div class="num">100%</div><p>Commitment to safety</p></div>
+    <div class="card card--stat"><div class="num">On&nbsp;time</div><p>Delivery you can rely on</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Latest news</p>
+    <h2>What we&rsquo;ve been up to</h2>
+    <div class="feed">
+      {% if collections.newsRecent.length %}
+        {% for post in collections.newsRecent %}
+          {% if loop.index <= 3 %}
+            <a class="feed-item" href="{{ post.url }}">
+              <span class="date">{{ post.date | dateDisplay }}</span>
+              <h3>{{ post.data.title }}</h3>
+              {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+            </a>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p class="empty">News updates will appear here.</p>
+      {% endif %}
+    </div>
+    <p style="margin-top: 28px"><a class="btn btn--dark" href="/news/">All news</a></p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Have a project in mind?</h2>
+    <p>Let&rsquo;s talk about how Cheni Construction can help you build it.</p>
+    <p style="margin-top: 22px"><a class="btn btn--dark" href="/contact/">Get in touch</a></p>
+  </div>
+</section>

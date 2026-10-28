@@ -1,0 +1,43 @@
+# Content Manager configuration (Sveltia CMS / Decap CMS compatible).
+# After deploying, your friend logs in at  https://YOUR-SITE/admin/
+# and edits News and Careers through a simple web form — no code, no git.
+
+backend:
+  name: github
+  repo: KingaTshering10/cheni-construction # change if the repo moves
+  branch: main
+
+# Enables a local test server: `npx @sveltia/cms-server` while `npm start` runs.
+local_backend: true
+
+media_folder: "src/assets/img" # uploaded images are committed here
+public_folder: "/assets/img" # ...and referenced from here on the live site
+
+collections:
+  - name: news
+    label: News
+    label_singular: News post
+    folder: "src/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime }
+      - { label: Short summary, name: summary, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: careers
+    label: Careers (Job openings)
+    label_singular: Job opening
+    folder: "src/careers"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { label: Job title, name: title, widget: string }
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Employment type, name: type, widget: string, required: false }
+      - { label: Number of openings, name: positions, widget: number, required: false, value_type: int }
+      - { label: Apply-by date, name: deadline, widget: string, required: false }
+      - { label: Job description, name: body, widget: markdown }

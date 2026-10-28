@@ -1,0 +1,20 @@
+{
+  "name": "Cheni Construction Private Limited",
+  "shortName": "Cheni Construction",
+  "tagline": "Building with integrity, delivering with pride.",
+  "description": "Cheni Construction Private Limited is a Bhutanese construction company delivering reliable civil, building, and infrastructure works.",
+  "email": "info@cheniconstruction.bt",
+  "phone": "+975 00-000000",
+  "address": "Thimphu, Bhutan",
+  "url": "https://cheniconstruction.bt",
+  "founded": 2026,
+  "nav": [
+    { "text": "Home", "url": "/" },
+    { "text": "About", "url": "/about/" },
+    { "text": "Services", "url": "/services/" },
+    { "text": "Projects", "url": "/projects/" },
+    { "text": "News", "url": "/news/" },
+    { "text": "Careers", "url": "/careers/" },
+    { "text": "Contact", "url": "/contact/" }
+  ]
+}

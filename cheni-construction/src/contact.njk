@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: Contact
+---
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Get in touch</p>
+    <h1>Contact Us</h1>
+    <p class="lead">Tell us about your project and we&rsquo;ll get back to you.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid grid-2">
+    <div class="prose">
+      <h2>Reach us</h2>
+      <p><strong>Address</strong><br />{{ site.address }}</p>
+      <p><strong>Phone</strong><br /><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></p>
+      <p><strong>Email</strong><br /><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <p class="empty">Replace the address, phone, and email in <code>src/_data/site.json</code> with the company&rsquo;s real details.</p>
+    </div>
+    <div class="card">
+      <h3>Send an enquiry</h3>
+      <p>Click below to email us directly — no form service needed.</p>
+      <p><a class="btn" href="mailto:{{ site.email }}?subject=Project enquiry">Email {{ site.shortName }}</a></p>
+    </div>
+  </div>
+</section>
